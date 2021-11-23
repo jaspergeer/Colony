@@ -14,6 +14,7 @@ Navigate to the root directory and run:
 ```
 gradlew jpackage
 ```
+This should generate a installer specific to your OS in directory build/(your os)-installer
 
 ## Built With
 * [Java](https://www.java.com/en/) - Language the application is built in
