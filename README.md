@@ -8,7 +8,12 @@ Feel free to use as an educational tool or just for fun, download links coming s
 
 ## Getting Started
 ### Prerequisites
-Java version 14 or higher
+Java 14 or higher
+### Installing
+Navigate to the root directory and run
+```
+gradlew jpackage
+```
 
 ## Built With
 * [Java](https://www.java.com/en/) - Language the application is built in
