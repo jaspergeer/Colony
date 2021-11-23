@@ -21,9 +21,10 @@ Run the installer.
 
 ## Built With
 * [Java](https://www.java.com/en/) - Language the application is built in
-* [JavaFX](https://openjfx.io) - Framework for UI and 2D graphics
+* [JavaFX](https://openjfx.io) - Framework for GUI and 2D graphics
 * [Intellij](https://www.jetbrains.com/idea/) - IDE used for development
 * [Gradle](https://gradle.org/features/) - Build automation tool
 * [Badass Runtime Plugin](https://badass-runtime-plugin.beryx.org/releases/latest/) - For creating installers and runtime images
+* [Gluon Scene Builder](https://gluonhq.com/products/scene-builder/) - For creating GUI layout
 ### Dependencies/Libraries
 * [JFoenix](https://github.com/sshahine/JFoenix) - For material design UI elements
