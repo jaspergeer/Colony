@@ -10,4 +10,4 @@ Feel free to use as an educational tool or just for fun, download links coming s
 coming soon
 
 # Dependencies
-[JFoenix](https://github.com/sshahine/JFoenix)
+[JFoenix](https://github.com/sshahine/JFoenix) - For material design UI elements
