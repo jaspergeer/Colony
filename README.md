@@ -10,7 +10,7 @@ Feel free to use as an educational tool or just for fun, download links coming s
 ### Prerequisites
 Java 14 or higher
 ### Installing
-Navigate to the root directory and run
+Navigate to the root directory and run:
 ```
 gradlew jpackage
 ```
