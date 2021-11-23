@@ -1,6 +1,6 @@
 # Colony
  An Educational Evolution Simulator
- * Mac installer - [download .pkg](https://www.mediafire.com/file/dqevpb7ik6kpq8z/ColonyInstaller-1.0.pkg/file)
+ * Mac installer - [download .pkg](https://www.mediafire.com/file/9irtq3by53frhd8/ColonyInstaller-1.1.pkg/file)
 
 Colony lets you easily observe the processes of mutation and natural selection!
 The user can vary the temperature, type of food, and abundance of food, and see the effects on the traits of a simulated population.
