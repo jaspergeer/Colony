@@ -37,5 +37,6 @@ runtime {
         imageName = 'Colony'
         installerName = 'Colony'
         installerType = 'dmg'
+        imageOptions = ['--icon', 'src/main/resources/colony.icns']
     }
 }
