@@ -8,6 +8,7 @@ import java.util.Random;
 public class Bacteria extends Genetic {
 
     private final int MAX_POSSIBLE_AGE = 1024;
+    private final int RGB_MASK = 0xff;
 
     private int speed;
     private int metabolism;
@@ -28,8 +29,7 @@ public class Bacteria extends Genetic {
         DIVIDE_THRESHOLD(3),
         WALL_THICKNESS(4),
         FOOD_TYPE(5),
-        EAT_AMOUNT(6),
-        SHAPE(7);
+        EAT_AMOUNT(6);
 
         final int value;
         Gene(int value) {
@@ -72,9 +72,9 @@ public class Bacteria extends Genetic {
 
         /* lose extra energy if we are outside of our temperature range */
         if (temperature > maxTemp) {
-            adjustEnergy(-(temperature - maxTemp));
+            adjustEnergy(-2 * (temperature - maxTemp));
         } else if (temperature < minTemp) {
-            adjustEnergy(temperature - minTemp);
+            adjustEnergy(2 * (temperature - minTemp));
         }
 
         age++;
@@ -136,7 +136,10 @@ public class Bacteria extends Genetic {
 
     @Override
     public Color getColor() {
-        return Color.rgb(getGeneVal(7), getGeneVal(0), getGeneVal(1));
+        int red = getGenome() >>> 16 & RGB_MASK;
+        int green = getGenome() >>> 8 & RGB_MASK;
+        int blue = getGenome() & RGB_MASK;
+        return Color.rgb(red, green, blue);
     }
 
     /**
@@ -154,8 +157,8 @@ public class Bacteria extends Genetic {
         energyToDivide = (getGeneVal(Gene.DIVIDE_THRESHOLD.value) + 1) * 4;
         eatAmount = getGeneVal(Gene.EAT_AMOUNT.value) * 4;
         maxAge = MAX_POSSIBLE_AGE / (metabolism + speed);
-        maxTemp = getGeneVal(Gene.HOT_RESIST.value);
-        minTemp = -getGeneVal(Gene.COLD_RESIST.value);
+        maxTemp = getGeneVal(Gene.HOT_RESIST.value) + 1;
+        minTemp = -getGeneVal(Gene.COLD_RESIST.value) + 1;
     }
 
 }
