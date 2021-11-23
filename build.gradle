@@ -1,3 +1,5 @@
+import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
+
 plugins {
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.9'
@@ -34,10 +36,19 @@ jar {
 
 runtime {
     jpackage {
+        OperatingSystem os = DefaultNativePlatform.currentOperatingSystem;
         imageName = 'Colony'
         installerName = 'ColonyInstaller'
-        installerType = 'dmg'
-        installerOutputDir = file("$buildDir/mac-installer")
+        if (os.isMacOsX()) {
+            installerType = 'pkg'
+            installerOutputDir = file("$buildDir/mac-installer")
+        } else if (os.isWindows()) {
+            installerType = 'msi'
+            installerOutputDir = file("$buildDir/win-installer")
+        } else if (os.isLinux()) {
+            installerType = 'rpm'
+            installerOutputDir = file("$buildDir/linux-installer")
+        }
     }
 }
 
