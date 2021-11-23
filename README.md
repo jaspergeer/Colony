@@ -7,8 +7,8 @@ This is not meant as an accurate scientific demonstration but instead as an acce
 Feel free to use as an educational tool or just for fun, download links coming soon.
 
 ## Getting Started
-
-## Prerequisites
+### Prerequisites
+Java version 14 or higher
 
 ## Built With
 * [Java](https://www.java.com/en/) - Language the application is built in
