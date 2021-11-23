@@ -10,11 +10,12 @@ Feel free to use as an educational tool or just for fun, download links coming s
 ### Prerequisites
 Java 14 or higher
 ### Installing
-Navigate to the root directory and run:
+Step 1) Navigate to the root directory and run:
 ```
 gradlew jpackage
 ```
-This should generate a installer specific to your OS in directory build/your-os-installer.
+This should generate a installer specific to your OS in directory build/your-os-installer
+Step 2) Run the installer
 
 ## Built With
 * [Java](https://www.java.com/en/) - Language the application is built in
