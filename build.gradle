@@ -40,3 +40,7 @@ runtime {
         installerOutputDir = file("$buildDir/mac-installer")
     }
 }
+
+if(JavaVersion.current() < JavaVersion.VERSION_14){
+    throw new GradleException("This build must be run with Java 14 or higher")
+}
