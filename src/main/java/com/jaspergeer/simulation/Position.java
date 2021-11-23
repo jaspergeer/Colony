@@ -46,24 +46,14 @@ public class Position {
     }
 
     /**
-     * Adjust x and y by given amounts. If either dimension goes above the maximum, it wraps around
-     * to 0, and if any dimension goes below 0 it wraps around to the maximum
+     * Adjust x and y by given amounts. Neither value can go above the associated Dim - 1 or
+     * below 0
      * @param shiftY amount to shift y by
      * @param shiftX amount to shift x by
      */
     public void adjust(int shiftY, int shiftX) {
-        x += shiftX;
-        y += shiftY;
-        if (x < 0) {
-            x = xDim - 1;
-        } else if (x >= xDim) {
-            x = 0;
-        }
-        if (y < 0) {
-            y = yDim - 1;
-        } else if (y >= yDim) {
-            y = 0;
-        }
+        x = Utils.clamp(x + shiftX, 0, xDim - 1);
+        y = Utils.clamp(y + shiftY, 0, yDim - 1);
     }
 
     public boolean equals(Position other) {
