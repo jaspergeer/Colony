@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fillWidth="false" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jaspergeer.app.SimController">
+  <children>
+  <AnchorPane prefHeight="900.0" prefWidth="1300.0">
+         <children>
+            <AnchorPane fx:id="displayPane" layoutX="200.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fx:id="logo" fitHeight="450.0" fitWidth="450.0" layoutX="225.0" layoutY="225.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="225.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="225.0">
+                     <image>
+                        <Image url="@logo.png" />
+                     </image>
+                  </ImageView>
+                  <Canvas fx:id="simDisplay" height="900.0" onMouseExited="#hideInfoPane" onMouseMoved="#displayGeneticInfo" scaleZ="5.0" width="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Canvas>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="1100.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="900.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="66.0" layoutY="16.0" text="Draw Entities" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="52.0">
+                     <font>
+                        <Font name="Trebuchet MS Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <JFXToggleButton layoutX="69.0" layoutY="24.0" onAction="#toggleDrawGenetics" prefHeight="38.0" prefWidth="75.0" selected="true" text=" " />
+                  <Label alignment="CENTER" layoutX="71.0" layoutY="74.0" text="Draw Map" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
+                     <font>
+                        <Font name="Trebuchet MS Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <JFXToggleButton layoutX="69.0" layoutY="90.0" onAction="#toggleDrawTiles" prefHeight="16.0" prefWidth="42.0" selected="true" text=" " />
+                  <AnchorPane layoutX="8.0" layoutY="157.0" prefHeight="601.0" prefWidth="184.0" style="-fx-background-color: white;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <children>
+                        <Label alignment="CENTER" layoutX="29.0" layoutY="5.0" prefHeight="16.0" prefWidth="132.0" text="Custom Bacteria" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="26.0">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="32.0" layoutY="80.0" prefHeight="16.0" prefWidth="121.0" text="Flagella Strength">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="41.0" layoutY="180.0" text="Cell Wall Thickness" AnchorPane.leftAnchor="34.0">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="35.0" layoutY="130.0" text="Division Threshold">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="42.0" layoutY="30.0" prefHeight="16.0" prefWidth="108.0" text="Food Preference" AnchorPane.leftAnchor="35.0">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXButton layoutX="46.0" layoutY="536.0" onAction="#populate" prefHeight="31.0" prefWidth="95.0" ripplerFill="BLACK" text="Populate">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXSlider fx:id="foodPrefSlider" layoutX="27.0" layoutY="50.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <JFXSlider fx:id="flagellaSlider" layoutX="13.0" layoutY="100.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" />
+                        <JFXSlider fx:id="divThresholdSlider" layoutX="13.0" layoutY="150.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <JFXSlider fx:id="wallThicknessSlider" layoutX="13.0" layoutY="200.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <Label alignment="CENTER" layoutX="37.0" layoutY="230.0" prefHeight="16.0" prefWidth="64.0" text="Appetite" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXSlider fx:id="appetiteSlider" layoutX="9.0" layoutY="250.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <Label alignment="CENTER" layoutX="71.0" layoutY="280.0" text="Shape" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="69.0">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXSlider fx:id="shapeSlider" layoutX="9.0" layoutY="300.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <Label alignment="CENTER" layoutX="34.0" layoutY="330.0" prefHeight="16.0" prefWidth="108.0" text="Heat Resistance" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="38.0">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXSlider fx:id="heatResistSlider" layoutX="12.0" layoutY="350.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <Label alignment="CENTER" layoutX="42.0" layoutY="380.0" prefHeight="16.0" prefWidth="95.0" text="Cold Resistance" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="45.0">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXSlider fx:id="coldResistSlider" layoutX="13.0" layoutY="400.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <Label alignment="CENTER" layoutX="66.0" layoutY="430.0" text="Starting Energy" AnchorPane.leftAnchor="46.0">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXSlider fx:id="initEnergySlider" layoutX="13.0" layoutY="450.0" majorTickUnit="16.0" max="256.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <Label alignment="CENTER" layoutX="66.0" layoutY="480.0" text="Quantity">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXSlider fx:id="quantitySlider" layoutX="9.0" layoutY="500.0" majorTickUnit="16.0" max="256.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+            <AnchorPane minHeight="-Infinity" prefHeight="900.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane layoutX="5.0" layoutY="275.0" prefHeight="547.0" prefWidth="184.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="8.0">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <children>
+                        <Label layoutX="29.0" layoutY="5.0" prefHeight="16.0" prefWidth="132.0" text="Environment Settings" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="26.0">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="60.0" layoutY="100.0" text="Food Type">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="41.0" layoutY="200.0" text="Food Regen Rate">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="35.0" layoutY="150.0" text="Food Type Variance" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="28.0">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="25.0" layoutY="400.0" text="Food Tile Frequency">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="48.0" layoutY="30.0" text="Simulation Size" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="45.0">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="6.0" layoutY="40.0" prefHeight="31.0" prefWidth="178.0" text="high values may reduce performance">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="10.0" />
+                           </font>
+                        </Label>
+                        <JFXSlider fx:id="simSizeSlider" blockIncrement="100.0" layoutX="12.0" layoutY="70.0" majorTickUnit="50.0" max="900.0" min="10.0" minorTickCount="10" prefHeight="16.0" prefWidth="160.0" showTickMarks="true" snapToTicks="true" value="300.0" />
+                        <Label layoutX="13.0" layoutY="250.0" text="Food Regen Rate Variance">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="50.0" layoutY="300.0" text="Max Tile Food">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="21.0" layoutY="350.0" text="Max Tile Food Variance">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXSlider fx:id="foodTypeSlider" layoutX="12.0" layoutY="120.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <JFXSlider fx:id="foodTypeVarSlider" layoutX="12.0" layoutY="170.0" majorTickUnit="1.0" max="8.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="4.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <JFXSlider fx:id="foodRegenSlider" layoutX="16.0" layoutY="220.0" majorTickUnit="8.0" max="64.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="32.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <JFXSlider fx:id="foodRegenVarSlider" layoutX="16.0" layoutY="270.0" majorTickUnit="8.0" max="32.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <JFXSlider fx:id="maxTileFoodSlider" layoutX="12.0" layoutY="320.0" majorTickUnit="16.0" max="256.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="64.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <JFXSlider fx:id="maxTileFoodVarSlider" layoutX="12.0" layoutY="370.0" majorTickUnit="16.0" max="128.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="16.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <JFXSlider fx:id="foodTileFreqSlider" layoutX="8.0" layoutY="420.0" majorTickUnit="16.0" max="256.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="64.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <JFXButton layoutX="45.0" layoutY="453.0" onAction="#applySettings" prefHeight="31.0" prefWidth="95.0" ripplerFill="BLACK" text="Apply">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton layoutX="45.0" layoutY="495.0" onAction="#applySettingsReset" prefHeight="31.0" prefWidth="95.0" ripplerFill="BLACK" text="Reset">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="13.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="54.0" layoutY="74.0" text="Simulation Speed">
+                     <font>
+                        <Font name="Trebuchet MS Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="53.0" layoutY="16.0" text="Toggle Simulation" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="46.0">
+                     <font>
+                        <Font name="Trebuchet MS Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="60.0" layoutY="126.0" text="Temperature">
+                     <font>
+                        <Font name="Trebuchet MS Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <JFXToggleButton fx:id="simToggle" layoutX="69.0" layoutY="24.0" onAction="#toggleSimulation" prefHeight="16.0" prefWidth="42.0" text=" " />
+                  <JFXSlider fx:id="speedSlider" layoutX="22.0" layoutY="100.0" majorTickUnit="1.0" max="5.0" maxWidth="-Infinity" min="1.0" minorTickCount="0" prefHeight="16.0" prefWidth="160.0" showTickMarks="true" snapToTicks="true" value="3.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <JFXSlider fx:id="tempSlider" layoutX="20.0" layoutY="152.0" majorTickUnit="4.0" max="32.0" min="-32.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="1.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Label layoutX="54.0" layoutY="178.0" text="Radiation Level">
+                     <font>
+                        <Font name="Trebuchet MS Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <JFXSlider fx:id="radSlider" layoutX="20.0" layoutY="201.0" majorTickUnit="16.0" max="256.0" minorTickCount="9" prefWidth="160.0" showTickMarks="true" value="16.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Label fx:id="popCounter" alignment="CENTER" layoutX="11.0" layoutY="227.0" prefHeight="31.0" prefWidth="178.0" text="Population: 0">
+                     <font>
+                        <Font name="Trebuchet MS Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+            <Pane fx:id="infoPane" layoutX="200.0" mouseTransparent="true" opacity="0.78" prefHeight="270.0" prefWidth="220.0" style="-fx-background-color: white;">
+               <children>
+                  <Label fx:id="infoLabel" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="250.0" prefWidth="200.0">
+                     <font>
+                        <Font name="Trebuchet MS Bold" size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+         </children>
+      </AnchorPane>
+  </children>
+</VBox>
