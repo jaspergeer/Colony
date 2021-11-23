@@ -50,6 +50,8 @@ runtime {
         } else if (os.isLinux()) {
             installerType = 'rpm'
             installerOutputDir = file("$buildDir/linux-installer")
+        } else {
+            installerOutputDir = file("$buildDir/otherOS-installer")
         }
     }
 }
