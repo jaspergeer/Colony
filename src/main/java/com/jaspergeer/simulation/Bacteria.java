@@ -158,7 +158,7 @@ public class Bacteria extends Genetic {
         eatAmount = getGeneVal(Gene.EAT_AMOUNT.value) * 4;
         maxAge = MAX_POSSIBLE_AGE / (metabolism + speed);
         maxTemp = getGeneVal(Gene.HOT_RESIST.value) + 1;
-        minTemp = -getGeneVal(Gene.COLD_RESIST.value) + 1;
+        minTemp = -getGeneVal(Gene.COLD_RESIST.value) - 1;
     }
 
 }
