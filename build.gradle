@@ -7,6 +7,8 @@ plugins {
 group 'com.jaspergeer'
 version '1.0-SNAPSHOT'
 
+mainClassName = 'com.jaspergeer.app.Main'
+
 repositories {
     mavenCentral()
 }
@@ -21,7 +23,6 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
-mainClassName = 'com.jaspergeer.app.Main'
 jar {
     manifest {
         attributes 'Main-Class': 'com.jaspergeer.app.Main'
@@ -33,10 +34,9 @@ jar {
 
 runtime {
     jpackage {
-        jpackageHome = '/Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk/Contents/Home'
         imageName = 'Colony'
-        installerName = 'Colony'
+        installerName = 'ColonyInstaller'
         installerType = 'dmg'
-        imageOptions = ['--icon', 'src/main/resources/colony.icns']
+        installerOutputDir = file("$buildDir/mac-installer")
     }
 }
