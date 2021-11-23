@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Bacteria extends Genetic {
 
-    private final int MAX_POSSIBLE_AGE = 1024;
+    private final int MAX_POSSIBLE_AGE = 128;
     private final int RGB_MASK = 0xff;
 
     private int speed;
