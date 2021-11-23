@@ -276,7 +276,8 @@ public class SimController {
     }
 
     /**
-     * Reset java.simulation using values specified in Environment Settings pane
+     * Apply values specified in Environment Settings to simulation environment
+     * @param display Canvas to calculate simulation to display scale from
      */
     private void applySettings(Canvas display) {
         simulation.generateFoodMap((int) foodTileFreqSlider.getValue(),
