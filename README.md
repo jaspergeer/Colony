@@ -1,5 +1,5 @@
 # Colony
- An Evolution Simulator
+ An Evolution Simulator (WIP)
 
 Colony lets you easily observe the processes of mutation and natural selection!
 The user can vary the temperature, type of food, and abundance of food, and see the effects on the traits of a simulated population.
