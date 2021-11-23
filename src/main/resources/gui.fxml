@@ -114,21 +114,21 @@
                            </font>
                         </JFXButton>
                         <JFXSlider fx:id="foodPrefSlider" layoutX="27.0" layoutY="50.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
-                        <JFXSlider fx:id="flagellaSlider" layoutX="13.0" layoutY="100.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" />
+                        <JFXSlider fx:id="flagellaSlider" layoutX="13.0" layoutY="100.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="2.0" />
                         <JFXSlider fx:id="divThresholdSlider" layoutX="13.0" layoutY="150.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
-                        <JFXSlider fx:id="wallThicknessSlider" layoutX="13.0" layoutY="200.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <JFXSlider fx:id="wallThicknessSlider" layoutX="13.0" layoutY="200.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="2.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
                         <Label alignment="CENTER" layoutX="37.0" layoutY="230.0" prefHeight="16.0" prefWidth="64.0" text="Appetite" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="13.0" />
                            </font>
                         </Label>
                         <JFXSlider fx:id="appetiteSlider" layoutX="9.0" layoutY="250.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
-                        <Label alignment="CENTER" layoutX="71.0" layoutY="280.0" text="Shape" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="69.0">
+                        <Label alignment="CENTER" layoutX="71.0" layoutY="280.0" text="Combat Ability" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="47.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="13.0" />
                            </font>
                         </Label>
-                        <JFXSlider fx:id="shapeSlider" layoutX="9.0" layoutY="300.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <JFXSlider fx:id="combatSlider" layoutX="9.0" layoutY="300.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="2.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
                         <Label alignment="CENTER" layoutX="34.0" layoutY="330.0" prefHeight="16.0" prefWidth="108.0" text="Heat Resistance" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="38.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="13.0" />
@@ -146,13 +146,13 @@
                               <Font name="Trebuchet MS Bold" size="13.0" />
                            </font>
                         </Label>
-                        <JFXSlider fx:id="initEnergySlider" layoutX="13.0" layoutY="450.0" majorTickUnit="16.0" max="256.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <JFXSlider fx:id="initEnergySlider" layoutX="13.0" layoutY="450.0" majorTickUnit="16.0" max="256.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="128.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
                         <Label alignment="CENTER" layoutX="66.0" layoutY="480.0" text="Quantity">
                            <font>
                               <Font name="Trebuchet MS Bold" size="13.0" />
                            </font>
                         </Label>
-                        <JFXSlider fx:id="quantitySlider" layoutX="9.0" layoutY="500.0" majorTickUnit="16.0" max="256.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <JFXSlider fx:id="quantitySlider" layoutX="9.0" layoutY="500.0" majorTickUnit="16.0" max="256.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="128.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
                      </children>
                   </AnchorPane>
                </children>
@@ -202,7 +202,7 @@
                               <Font name="Trebuchet MS Bold" size="10.0" />
                            </font>
                         </Label>
-                        <JFXSlider fx:id="simSizeSlider" blockIncrement="100.0" layoutX="12.0" layoutY="70.0" majorTickUnit="50.0" max="900.0" min="10.0" minorTickCount="10" prefHeight="16.0" prefWidth="160.0" showTickMarks="true" snapToTicks="true" value="300.0" />
+                        <JFXSlider fx:id="simSizeSlider" blockIncrement="100.0" layoutX="12.0" layoutY="70.0" majorTickUnit="50.0" max="900.0" min="50.0" minorTickCount="0" prefHeight="16.0" prefWidth="160.0" showTickMarks="true" snapToTicks="true" value="300.0" />
                         <Label layoutX="13.0" layoutY="250.0" text="Food Regen Rate Variance">
                            <font>
                               <Font name="Trebuchet MS Bold" size="13.0" />
@@ -220,11 +220,11 @@
                         </Label>
                         <JFXSlider fx:id="foodTypeSlider" layoutX="12.0" layoutY="120.0" majorTickUnit="1.0" max="16.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
                         <JFXSlider fx:id="foodTypeVarSlider" layoutX="12.0" layoutY="170.0" majorTickUnit="1.0" max="8.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="4.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
-                        <JFXSlider fx:id="foodRegenSlider" layoutX="16.0" layoutY="220.0" majorTickUnit="8.0" max="64.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="32.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <JFXSlider fx:id="foodRegenSlider" layoutX="16.0" layoutY="220.0" majorTickUnit="8.0" max="32.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
                         <JFXSlider fx:id="foodRegenVarSlider" layoutX="16.0" layoutY="270.0" majorTickUnit="8.0" max="32.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="8.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
-                        <JFXSlider fx:id="maxTileFoodSlider" layoutX="12.0" layoutY="320.0" majorTickUnit="16.0" max="256.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="64.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
-                        <JFXSlider fx:id="maxTileFoodVarSlider" layoutX="12.0" layoutY="370.0" majorTickUnit="16.0" max="128.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="16.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
-                        <JFXSlider fx:id="foodTileFreqSlider" layoutX="8.0" layoutY="420.0" majorTickUnit="16.0" max="256.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="64.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <JFXSlider fx:id="maxTileFoodSlider" layoutX="12.0" layoutY="320.0" majorTickUnit="16.0" max="256.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="128.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <JFXSlider fx:id="maxTileFoodVarSlider" layoutX="12.0" layoutY="370.0" majorTickUnit="16.0" max="128.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="64.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+                        <JFXSlider fx:id="foodTileFreqSlider" layoutX="8.0" layoutY="420.0" majorTickUnit="16.0" max="256.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="256.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
                         <JFXButton layoutX="45.0" layoutY="453.0" onAction="#applySettings" prefHeight="31.0" prefWidth="95.0" ripplerFill="BLACK" text="Apply">
                            <font>
                               <Font name="Trebuchet MS Bold" size="13.0" />

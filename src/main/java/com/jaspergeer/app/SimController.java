@@ -74,7 +74,6 @@ public class SimController {
     @FXML
     JFXSlider radSlider;
 
-
     /* Environment Settings Nodes */
 
     @FXML
@@ -127,9 +126,6 @@ public class SimController {
     JFXSlider appetiteSlider;
 
     @FXML
-    JFXSlider shapeSlider;
-
-    @FXML
     JFXSlider heatResistSlider;
 
     @FXML
@@ -140,6 +136,9 @@ public class SimController {
 
     @FXML
     JFXSlider quantitySlider;
+
+    @FXML
+    JFXSlider combatSlider;
 
     @FXML
     public void initialize() {
@@ -188,15 +187,14 @@ public class SimController {
             simLoop.stop();
             entityMap = createEntityMap(simulation);
         } else {
+            logo.setOpacity(0);
             simLoop.start();
         }
         isRunning = !isRunning;
     }
 
     @FXML
-    private void toggleDrawTiles(ActionEvent event) {
-        drawTiles = !drawTiles;
-    }
+    private void toggleDrawTiles(ActionEvent event) { drawTiles = !drawTiles; }
 
     @FXML
     private void toggleDrawGenetics(ActionEvent event) {
@@ -217,7 +215,7 @@ public class SimController {
         b.setGeneVal(4, (int) wallThicknessSlider.getValue() - 1);
         b.setGeneVal(5, (int) foodTypeSlider.getValue() - 1);
         b.setGeneVal(6, (int) appetiteSlider.getValue() - 1);
-        b.setGeneVal(7, (int) shapeSlider.getValue() - 1);
+        b.setGeneVal(7, (int) combatSlider.getValue() - 1);
 
         for (int i = 0; i < quantitySlider.getValue(); i++) {
             b.setPosition(new Position(rand.nextInt(simDim), rand.nextInt(simDim),

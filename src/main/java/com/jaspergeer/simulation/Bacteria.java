@@ -30,7 +30,8 @@ public class Bacteria extends Genetic {
         DIVIDE_THRESHOLD(3),
         WALL_THICKNESS(4),
         FOOD_TYPE(5),
-        EAT_AMOUNT(6);
+        EAT_AMOUNT(6),
+        COMBAT_ABILITY(7);
 
         final int value;
         Gene(int value) {
@@ -145,7 +146,8 @@ public class Bacteria extends Genetic {
         int red = getGenome() >>> 16 & RGB_MASK;
         int green = getGenome() >>> 8 & RGB_MASK;
         int blue = getGenome() & RGB_MASK;
-        return Color.rgb(red, green, blue);
+        double opacity = 0.7 * ((double) combatPower / 450) + 0.3;
+        return Color.rgb(red, green, blue, opacity);
     }
 
     /**
@@ -159,13 +161,15 @@ public class Bacteria extends Genetic {
                 getGeneVal(Gene.WALL_THICKNESS.value) +
                 getGeneVal(Gene.EAT_AMOUNT.value) +
                 getGeneVal(Gene.COLD_RESIST.value) +
-                getGeneVal(Gene.HOT_RESIST.value)) / 7 + 1;
+                getGeneVal(Gene.HOT_RESIST.value) +
+                2 * getGeneVal(Gene.COMBAT_ABILITY.value)) / 9 + 1;
         energyToDivide = (getGeneVal(Gene.DIVIDE_THRESHOLD.value) + 1) * 4;
         eatAmount = getGeneVal(Gene.EAT_AMOUNT.value) * 4;
         maxAge = MAX_POSSIBLE_AGE / (metabolism + speed);
         maxTemp = getGeneVal(Gene.HOT_RESIST.value) + 1;
         minTemp = -getGeneVal(Gene.COLD_RESIST.value) - 1;
-        combatPower = speed * getGeneVal(Gene.WALL_THICKNESS.value);
+        combatPower = getGeneVal(Gene.COMBAT_ABILITY.value) *
+                (speed * getGeneVal(Gene.WALL_THICKNESS.value)) / 2;
     }
 
 }
