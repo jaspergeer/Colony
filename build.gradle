@@ -39,12 +39,14 @@ runtime {
         OperatingSystem os = DefaultNativePlatform.currentOperatingSystem;
         imageName = 'Colony'
         installerName = 'ColonyInstaller'
+        imageOptions = ['--icon', 'src/main/resources/colony.icns']
         if (os.isMacOsX()) {
             installerType = 'pkg'
             installerOutputDir = file("$buildDir/mac-installer")
         } else if (os.isWindows()) {
             installerType = 'msi'
             installerOutputDir = file("$buildDir/win-installer")
+            imageOptions = ['--icon', 'src/main/resources/colony.ico']
         } else if (os.isLinux()) {
             installerType = 'rpm'
             installerOutputDir = file("$buildDir/linux-installer")
