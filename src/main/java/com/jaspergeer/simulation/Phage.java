@@ -16,7 +16,7 @@ public class Phage extends Genetic {
     public void onUpdate(int temperature) { }
 
     @Override
-    public int getCollideFactor(Genetic other) {
+    public int getCombatPower(Genetic other) {
         return 0;
     }
 

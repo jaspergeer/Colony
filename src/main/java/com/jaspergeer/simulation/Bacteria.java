@@ -18,6 +18,7 @@ public class Bacteria extends Genetic {
     private int age;
     private int maxTemp;
     private int minTemp;
+    private int combatPower;
 
     /**
      * We give names to each index in the genome for readability and easier access
@@ -81,13 +82,14 @@ public class Bacteria extends Genetic {
     }
 
     @Override
-    public int getCollideFactor(Genetic other) {
+    public int getCombatPower(Genetic other) {
         updateTraits();
-        return speed * getGeneVal(Gene.WALL_THICKNESS.value) + 1;
+        return combatPower;
     }
 
     @Override
     public Genetic getDivide(int mutateChance) {
+        updateTraits();
         /* only divide if this Bacteria has sufficient energy */
         if (getEnergy() >= energyToDivide) {
             Bacteria child = new Bacteria(this);
@@ -104,11 +106,13 @@ public class Bacteria extends Genetic {
 
     @Override
     public void onEat(int foodType, int amount) {
+        updateTraits();
         adjustEnergy(amount / (Math.abs(foodType - getGeneVal(Gene.FOOD_TYPE.value)) + 1));
     }
 
     @Override
     public int getEatMax() {
+        updateTraits();
         return eatAmount;
     }
 
@@ -122,6 +126,7 @@ public class Bacteria extends Genetic {
         sb.append("===Traits===").append("\n");
         sb.append("Preferred Food: ").append(getGeneVal(Gene.FOOD_TYPE.value)).append("\n");
         sb.append("Metabolic Rate: ").append(metabolism).append("\n");
+        sb.append("Combat Power: ").append(combatPower).append("\n");
         sb.append("Speed: ").append(speed).append("\n");
         sb.append("Appetite: ").append(eatAmount).append("\n");
         sb.append("Division Threshold: ").append(energyToDivide).append("\n");
@@ -136,6 +141,7 @@ public class Bacteria extends Genetic {
 
     @Override
     public Color getColor() {
+        updateTraits();
         int red = getGenome() >>> 16 & RGB_MASK;
         int green = getGenome() >>> 8 & RGB_MASK;
         int blue = getGenome() & RGB_MASK;
@@ -159,6 +165,7 @@ public class Bacteria extends Genetic {
         maxAge = MAX_POSSIBLE_AGE / (metabolism + speed);
         maxTemp = getGeneVal(Gene.HOT_RESIST.value) + 1;
         minTemp = -getGeneVal(Gene.COLD_RESIST.value) - 1;
+        combatPower = speed * getGeneVal(Gene.WALL_THICKNESS.value);
     }
 
 }

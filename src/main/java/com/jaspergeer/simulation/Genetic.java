@@ -55,7 +55,8 @@ public abstract class Genetic {
      */
     public Genetic onCollide(Genetic other) {
         Random rand = new Random();
-        if (rand.nextInt(other.getCollideFactor(other)) > rand.nextInt(this.getCollideFactor(other))) {
+        if (rand.nextInt(other.getCombatPower(other) + 1) >
+                rand.nextInt(this.getCombatPower(other) + 1)) {
             /* the winner of the engagement absorbs the losers energy */
             other.energy += Utils.clamp(energy, 0, Integer.MAX_VALUE);
             isDead = true;
@@ -123,12 +124,11 @@ public abstract class Genetic {
     public abstract void onUpdate(int temperature);
 
     /**
-     * Given a Genetic this Genetic is colliding with, returns a 'collision factor' used to determine which one will
-     * survive
-     * @param other Genetic this Genetic is colliding with
-     * @return Collision factor for this Genetic
+     * Returns the combat power of this Genetic given another Genetic it has to 'fight'
+     * @param other Genetic this Genetic is fighting with
+     * @return combat power of this genetic
      */
-    public abstract int getCollideFactor(Genetic other);
+    public abstract int getCombatPower(Genetic other);
 
     /**
      * Returns an 'offspring' Genetic with genome created from this Genetic
