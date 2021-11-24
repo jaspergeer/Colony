@@ -1,5 +1,4 @@
 # Colony
-By Jasper Geer<br />
 An Educational Evolution Simulator
  * Mac installer - [download .pkg](https://www.mediafire.com/file/tyhgrktxygj2cen/ColonyInstaller-1.0.pkg/file)
 
@@ -34,3 +33,6 @@ Run the installer.
 * [Gluon Scene Builder](https://gluonhq.com/products/scene-builder/) - For creating GUI layout
 ### Dependencies/Libraries
 * [JFoenix](https://github.com/sshahine/JFoenix) - For material design UI elements
+
+## Contributors
+* [Jasper Geer](https://github.com/jaspergeer)
