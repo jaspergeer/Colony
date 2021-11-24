@@ -1,6 +1,6 @@
 # Colony
-By Jasper Geer
- An Educational Evolution Simulator
+By Jasper Geer\n
+An Educational Evolution Simulator
  * Mac installer - [download .pkg](https://www.mediafire.com/file/tyhgrktxygj2cen/ColonyInstaller-1.0.pkg/file)
 
 Colony lets you easily observe the processes of mutation and natural selection!
