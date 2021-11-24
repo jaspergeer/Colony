@@ -34,6 +34,7 @@ public class Bacteria extends Genetic {
         COMBAT_ABILITY(7);
 
         final int value;
+
         Gene(int value) {
             this.value = value;
         }
@@ -59,8 +60,10 @@ public class Bacteria extends Genetic {
         Random rand = new Random();
         Position pos = getPosition();
 
-        int yShift = rand.nextInt(speed + 1);;
-        int xShift = rand.nextInt(speed + 1);;
+        int yShift = rand.nextInt(speed + 1);
+        ;
+        int xShift = rand.nextInt(speed + 1);
+        ;
         if (rand.nextBoolean()) {
             yShift = -yShift;
         }

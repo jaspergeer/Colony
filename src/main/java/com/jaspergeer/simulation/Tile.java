@@ -23,6 +23,7 @@ public class Tile {
 
     /**
      * Take a given amount of food from this tile
+     *
      * @param amount amount of food to take
      * @return given amount of food if available or rest of available food if not
      */
@@ -39,9 +40,15 @@ public class Tile {
         availableFood = amount;
     }
 
-    public int getFoodType() { return foodType; }
+    public int getFoodType() {
+        return foodType;
+    }
 
-    public int getAvailableFood() { return availableFood; }
+    public int getAvailableFood() {
+        return availableFood;
+    }
 
-    public int getMaxFood() { return maxFood; }
+    public int getMaxFood() {
+        return maxFood;
+    }
 }

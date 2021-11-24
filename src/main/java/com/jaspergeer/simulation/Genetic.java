@@ -32,7 +32,8 @@ public abstract class Genetic {
 
     /**
      * Get the value of a 4-bit gene at a given index in the genome
-     * @param index the index from 0-15 of the gene
+     *
+     * @param index the index from 0-7 of the gene
      * @return the value of the gene
      */
     public int getGeneVal(int index) {
@@ -40,6 +41,12 @@ public abstract class Genetic {
         return (genome & mask) >>> (index * 4);
     }
 
+    /**
+     * Set the value of a 4-bit gene at a given index in the genome
+     *
+     * @param index the index from 0-7 of the gene
+     * @param value the value to set this gene to
+     */
     public void setGeneVal(int index, int value) {
         int mask = ~(GENE_MASK << (index * 4));
         genome = genome & mask;
@@ -48,8 +55,9 @@ public abstract class Genetic {
     }
 
     /**
-     * Called by the java.simulation when a Genetic moves into a space occupied by another Genetic. Determines the survivor
+     * Called by the simulation when a Genetic moves into a space occupied by another Genetic. Determines the survivor
      * based on the collision factors of both Genetics
+     *
      * @param other the Genetic this Genetic has collided with
      * @return Genetic which survives the engagement
      */
@@ -97,19 +105,33 @@ public abstract class Genetic {
 
     /* implemented setters and getters */
 
-    public Position getPosition() { return new Position(position); }
+    public Position getPosition() {
+        return new Position(position);
+    }
 
-    public void setPosition(Position p) { position = p; }
+    public void setPosition(Position p) {
+        position = p;
+    }
 
-    public boolean isDead() { return isDead; }
+    public boolean isDead() {
+        return isDead;
+    }
 
-    public void setDead(boolean isDead) { this.isDead = isDead; }
+    public void setDead(boolean isDead) {
+        this.isDead = isDead;
+    }
 
-    public int getGenome() { return genome; }
+    public int getGenome() {
+        return genome;
+    }
 
-    public int getEnergy() { return energy; }
+    public int getEnergy() {
+        return energy;
+    }
 
-    public void setEnergy(int amount) { energy = amount; }
+    public void setEnergy(int amount) {
+        energy = amount;
+    }
 
     public void adjustEnergy(int amount) {
         energy = Utils.clamp(energy + amount, 0, Integer.MAX_VALUE);
@@ -119,12 +141,14 @@ public abstract class Genetic {
 
     /**
      * Update is called every cycle by the java.simulation
+     *
      * @param temperature the current temperature of the java.simulation environment
      */
     public abstract void onUpdate(int temperature);
 
     /**
      * Returns the combat power of this Genetic given another Genetic it has to 'fight'
+     *
      * @param other Genetic this Genetic is fighting with
      * @return combat power of this genetic
      */
@@ -132,6 +156,7 @@ public abstract class Genetic {
 
     /**
      * Returns an 'offspring' Genetic with genome created from this Genetic
+     *
      * @param mutateChance integer from 0-256 representing probability of mutation
      * @return offspring Genetic, null if Genetic cannot currently divide
      */
@@ -139,8 +164,9 @@ public abstract class Genetic {
 
     /**
      * 'Feeds' a Genetic a certain quantity and type of food.
+     *
      * @param foodType type of food
-     * @param amount amount of food
+     * @param amount   amount of food
      */
     public abstract void onEat(int foodType, int amount);
 

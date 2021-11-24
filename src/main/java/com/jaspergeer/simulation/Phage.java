@@ -13,7 +13,8 @@ public class Phage extends Genetic {
     }
 
     @Override
-    public void onUpdate(int temperature) { }
+    public void onUpdate(int temperature) {
+    }
 
     @Override
     public int getCombatPower(Genetic other) {
@@ -26,7 +27,8 @@ public class Phage extends Genetic {
     }
 
     @Override
-    public void onEat(int foodType, int amount) { }
+    public void onEat(int foodType, int amount) {
+    }
 
     @Override
     public int getEatMax() {
@@ -39,5 +41,7 @@ public class Phage extends Genetic {
     }
 
     @Override
-    public Color getColor() { return Color.BEIGE; }
+    public Color getColor() {
+        return Color.BEIGE;
+    }
 }

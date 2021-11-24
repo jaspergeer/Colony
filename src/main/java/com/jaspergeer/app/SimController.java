@@ -28,7 +28,7 @@ public class SimController {
 
     private final int TILE_MAX_FOOD = 256;
 
-    private final long BASE_TICK = 32000000;
+    private final long BASE_TICK = 32_000_000;
 
     private final int BACTERIA_INIT_ENERGY = 64;
 
@@ -154,8 +154,7 @@ public class SimController {
         displayInfoPos = new Position(0, 0, 0, 0);
         infoPane.setOpacity(0);
 
-        simLoop = new AnimationTimer()
-        {
+        simLoop = new AnimationTimer() {
             private long lastUpdate = 0;
 
             /**
@@ -163,8 +162,7 @@ public class SimController {
              * @param now current time
              */
             @Override
-            public void handle(long now)
-            {
+            public void handle(long now) {
                 if (now - lastUpdate >= (5 - speedSlider.getValue()) * BASE_TICK) {
                     simulation.update();
                     drawSimulation(simDisplay);
@@ -179,6 +177,7 @@ public class SimController {
 
     /**
      * Start or stop the java.simulation
+     *
      * @param event ActionEvent which triggered this
      */
     @FXML
@@ -194,7 +193,9 @@ public class SimController {
     }
 
     @FXML
-    private void toggleDrawTiles(ActionEvent event) { drawTiles = !drawTiles; }
+    private void toggleDrawTiles(ActionEvent event) {
+        drawTiles = !drawTiles;
+    }
 
     @FXML
     private void toggleDrawGenetics(ActionEvent event) {
@@ -226,6 +227,7 @@ public class SimController {
 
     /**
      * Reset java.simulation and apply Environment Settings
+     *
      * @param event ActionEvent that triggered this
      */
     @FXML
@@ -237,6 +239,7 @@ public class SimController {
 
     /**
      * Apply Environment Settings to current java.simulation without reset
+     *
      * @param event ActionEvent that triggered this
      */
     @FXML
@@ -247,6 +250,7 @@ public class SimController {
     /**
      * Display a transparent text box next to the cursor containing information about the Genetic
      * the cursor is currently hovering over
+     *
      * @param event MouseEvent containing mouse position relative to canvas
      */
     @FXML
@@ -266,6 +270,7 @@ public class SimController {
 
     /**
      * Hide the transparent info box
+     *
      * @param event MouseEvent that triggered this
      */
     @FXML
@@ -275,6 +280,7 @@ public class SimController {
 
     /**
      * Apply values specified in Environment Settings to simulation environment
+     *
      * @param display Canvas to calculate simulation to display scale from
      */
     private void applySettings(Canvas display) {
@@ -288,13 +294,14 @@ public class SimController {
 
     /**
      * Draw food Tiles in current state and each Genetic in current positions on given Canvas
+     *
      * @param display Canvas to draw on
      */
     private void drawSimulation(Canvas display) {
         GraphicsContext gc = display.getGraphicsContext2D();
         LinkedList<Genetic> toDraw = simulation.getEntities();
         Tile[][] foodMap = simulation.getFoodMap();
-        gc.clearRect(0,0,display.getWidth(),display.getHeight());
+        gc.clearRect(0, 0, display.getWidth(), display.getHeight());
 
         if (drawTiles) {
             /* draw food tiles */
@@ -339,6 +346,7 @@ public class SimController {
 
     /**
      * Create a 2D array storing the position of each Genetic in the java.simulation
+     *
      * @param s Simulation to create array from
      * @return 2D array storing Genetics at corresponding positions
      */

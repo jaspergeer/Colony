@@ -15,17 +15,17 @@ public class Simulation {
     private int maxTileFood;
 
     /**
-     * @param height number of rows in the map
-     * @param width number of columns in the map
+     * @param height            number of rows in the map
+     * @param width             number of columns in the map
      * @param foodTileFrequency probability (0-256) of each generated tile being a food tile
-     * @param initRadLevel initial radiation level
-     * @param initTemp initial temperature
-     * @param regenRateBias center of food regen rate values
+     * @param initRadLevel      initial radiation level
+     * @param initTemp          initial temperature
+     * @param regenRateBias     center of food regen rate values
      * @param regenRateVariance range / 2 of food regen rate values
-     * @param foodTypeBias center of food type values
-     * @param foodTypeVariance range / 2 of food type values
-     * @param maxFoodBias center of maximum food values
-     * @param maxFoodVariance range / 2 of maximum food values
+     * @param foodTypeBias      center of food type values
+     * @param foodTypeVariance  range / 2 of food type values
+     * @param maxFoodBias       center of maximum food values
+     * @param maxFoodVariance   range / 2 of maximum food values
      */
     public Simulation(int height, int width, int foodTileFrequency, int initRadLevel,
                       int initTemp,
@@ -76,14 +76,17 @@ public class Simulation {
                     if (child != null) {
                         /* find a suitable location to place the child if possible */
                         Position dest = new Position(pos);
-                        if (collisionMap[dest.getResultOf(1,0).getY()][pos.getX()] == null) {
-                            dest.adjust(1,0);
-                        } else if (collisionMap[dest.getResultOf(-1,0).getY()][pos.getX()] == null) {
-                            dest.adjust(-1,0);
-                        } else if (collisionMap[pos.getY()][dest.getResultOf(0,1).getX()] == null) {
-                            dest.adjust(0,1);
-                        } else if (collisionMap[pos.getY()][dest.getResultOf(0,-1).getX()] == null) {
-                            dest.adjust(0,-1);
+                        if (collisionMap[dest.getResultOf(1, 0).getY()][pos.getX()] == null) {
+                            dest.adjust(1, 0);
+                        } else if (collisionMap[dest.getResultOf(-1, 0).getY()][pos.getX()]
+                                == null) {
+                            dest.adjust(-1, 0);
+                        } else if (collisionMap[pos.getY()][dest.getResultOf(0, 1).getX()]
+                                == null) {
+                            dest.adjust(0, 1);
+                        } else if (collisionMap[pos.getY()][dest.getResultOf(0, -1).getX()]
+                                == null) {
+                            dest.adjust(0, -1);
                         } else {
                             dest = null;
                         }
@@ -95,7 +98,8 @@ public class Simulation {
                     }
                     /* feeding phase */
                     Tile thisTile = foodMap[pos.getY()][pos.getX()];
-                    thisEntity.onEat(thisTile.getFoodType(), thisTile.getFood(thisEntity.getEatMax()));
+                    thisEntity.onEat(thisTile.getFoodType(),
+                            thisTile.getFood(thisEntity.getEatMax()));
                     /* if this Genetic survived the cycle, enqueue it to be processed next cycle */
                     newEntities.add(thisEntity);
                 }
@@ -113,6 +117,7 @@ public class Simulation {
 
     /**
      * Add an individual to the java.simulation
+     *
      * @param g Genetic to add to the java.simulation
      */
     public void addEntity(Genetic g) {
@@ -122,13 +127,14 @@ public class Simulation {
 
     /**
      * Generate a new food map based on given constraints
+     *
      * @param foodTileFrequency probability (0-256) of each generated tile being a food tile
-     * @param regenRateBias center of food regen rate values
+     * @param regenRateBias     center of food regen rate values
      * @param regenRateVariance range / 2 of food regen rate values
-     * @param foodTypeBias center of food type values
-     * @param foodTypeVariance range / 2 of food type values
-     * @param maxFoodBias center of maximum food values
-     * @param maxFoodVariance range / 2 of maximum food values
+     * @param foodTypeBias      center of food type values
+     * @param foodTypeVariance  range / 2 of food type values
+     * @param maxFoodBias       center of maximum food values
+     * @param maxFoodVariance   range / 2 of maximum food values
      */
     public void generateFoodMap(int foodTileFrequency, int regenRateBias, int regenRateVariance,
                                 int foodTypeBias, int foodTypeVariance, int maxFoodBias,
@@ -152,7 +158,7 @@ public class Simulation {
                             Integer.MAX_VALUE);
                     foodMap[row][col] = new Tile(foodType, regenRate, maxFood);
                 } else {
-                    foodMap[row][col] = new Tile(0,0,0);
+                    foodMap[row][col] = new Tile(0, 0, 0);
                 }
             }
         }
