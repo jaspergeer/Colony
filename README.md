@@ -9,7 +9,7 @@ Feel free to use as an educational tool or just for fun.
 
 ## Getting Started
 ### Prerequisites
-Java 14
+* Java 14
 ### Installing
 Step 1) Navigate to the root directory and run:
 ```
