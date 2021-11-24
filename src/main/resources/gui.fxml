@@ -155,12 +155,17 @@
                         <JFXSlider fx:id="quantitySlider" layoutX="9.0" layoutY="500.0" majorTickUnit="16.0" max="256.0" min="1.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="128.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
                      </children>
                   </AnchorPane>
-                  <Label alignment="CENTER" layoutX="57.0" layoutY="801.0" text="By Jasper Geer">
+                  <Label alignment="CENTER" layoutX="98.0" layoutY="790.0" text="v1.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="30.5">
                      <font>
                         <Font name="Trebuchet MS Bold" size="13.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="818.0" text="github.com/jaspergeer">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="34.0" layoutY="820.0" text="github.com/jaspergeer" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="30.5">
+                     <font>
+                        <Font name="Trebuchet MS Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="64.0" layoutY="805.0" text="By Jasper Geer" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="30.5">
                      <font>
                         <Font name="Trebuchet MS Bold" size="13.0" />
                      </font>
