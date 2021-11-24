@@ -1,5 +1,5 @@
 # Colony
-By Jasper Geer\n
+By Jasper Geer<br />
 An Educational Evolution Simulator
  * Mac installer - [download .pkg](https://www.mediafire.com/file/tyhgrktxygj2cen/ColonyInstaller-1.0.pkg/file)
 
