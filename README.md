@@ -1,5 +1,5 @@
 # Colony
-An Educational Evolution Simulator
+An Graphical Evolution Simulator
  * Mac installer (version 1.0.1) - [download .pkg](https://www.mediafire.com/file/72qof18itmchocb/ColonyInstaller-1.0.1.pkg/file)
 
 Colony lets you easily observe the processes of mutation and natural selection!
