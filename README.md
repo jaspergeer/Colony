@@ -7,6 +7,9 @@ The user can vary the temperature, type of food, and abundance of food, and see 
 This is not meant as an accurate scientific demonstration but instead as an accessible way to display the process of evolution!
 Feel free to use as an educational tool or just for fun.
 
+## WARNING
+### This program has a graphical component that may cause eye strain or seizures in certain viewers. Even if you are not normally susceptible I would recommend switiching off 'Draw Entities' for longer viewing periods.
+
 ## Motivation
 Colony was created as my final project submission for Big Bang to Humankind, a class at my university covering elements of astronomy, physics,
 chemistry, biology, and anthropology. I was tasked with creating something that demonstrated my synthesis of topics covered in the course and 
