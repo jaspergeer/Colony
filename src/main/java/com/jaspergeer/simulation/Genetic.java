@@ -81,29 +81,35 @@ public abstract class Genetic {
     }
 
     /**
-     * Make a change to the genome in one of three randomly determined ways
+     * Make a change to the genome in one of three predetermined ways
      */
     public void mutate() {
         Random rand = new Random();
         int mask;
+        int location;
         switch (rand.nextInt(3)) {
-            /* replacement mutation */
+            /* point mutation */
             case 0:
                 mask = 0x1 << rand.nextInt(GENOME_LENGTH);
                 genome = genome ^ mask;
                 break;
             /* inversion mutation */
             case 1:
-                mask = 0xf << (rand.nextInt(GENOME_LENGTH / 4) * 4);
-                genome = genome ^ mask;
+                location = (rand.nextInt(GENOME_LENGTH / 4) * 4);
+                mask = 0xf << location;
+                int gene = genome & mask;
+                genome = genome & ~mask;
+                genome = genome & ~gene;
                 break;
-            /* frame shift mutation */
+            /* deletion (frameshift) mutation */
             case 2:
+                location = rand.nextInt(GENOME_LENGTH);
+                mask = 0x0 >> location;
                 if (rand.nextBoolean()) {
-                    genome = genome << 1;
-                } else {
-                    genome = genome >>> 1;
+                    mask = ~mask;
                 }
+                genome = genome & mask;
+                genome = genome & (rand.nextInt() & ~mask);
                 break;
         }
     }

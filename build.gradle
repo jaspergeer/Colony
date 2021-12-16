@@ -7,7 +7,7 @@ plugins {
 }
 
 group 'com.jaspergeer'
-version '1.0.1'
+version '1.0.2'
 
 mainClassName = 'com.jaspergeer.app.Main'
 
