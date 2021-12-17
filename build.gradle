@@ -16,12 +16,11 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    implementation files('libs/jfoenix-9.0.10.jar')
+    implementation 'com.jfoenix:jfoenix:9.0.10'
 }
 
 javafx {
-    version = "14"
+    version = "17"
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
@@ -29,9 +28,9 @@ jar {
     manifest {
         attributes 'Main-Class': 'com.jaspergeer.app.Main'
     }
-    from {
-        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
-    }
+//    from {
+//        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+//    }
 }
 
 runtime {
@@ -56,6 +55,6 @@ runtime {
     }
 }
 
-if(JavaVersion.current() != JavaVersion.VERSION_14){
-    throw new GradleException("This build must be run with Java 14 or higher")
-}
+//if(JavaVersion.current() != JavaVersion.VERSION_14){
+//    throw new GradleException("This build must be run with Java 14 or higher")
+//}
