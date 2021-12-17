@@ -17,7 +17,7 @@ decided to demonstrate my knowledge of evolution and genetic mutations.
 
 ## Getting Started
 ### Prerequisites
-* Java 14
+* Java 17
 ### Installing
 Step 1) Navigate to the root directory and run:
 ```
