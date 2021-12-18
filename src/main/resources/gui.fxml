@@ -66,19 +66,13 @@
             </AnchorPane>
             <AnchorPane layoutX="1100.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="900.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label alignment="CENTER" layoutX="66.0" layoutY="16.0" text="Draw Entities" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="52.0">
+                  <Label alignment="CENTER" layoutX="59.0" layoutY="16.0" text="Draw Entities">
                      <font>
                         <Font name="Trebuchet MS Bold" size="13.0" />
                      </font>
                   </Label>
-                  <JFXToggleButton layoutX="69.0" layoutY="24.0" onAction="#toggleDrawGenetics" prefHeight="38.0" prefWidth="75.0" selected="true" text=" " />
-                  <Label alignment="CENTER" layoutX="71.0" layoutY="74.0" text="Draw Map" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
-                     <font>
-                        <Font name="Trebuchet MS Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <JFXToggleButton layoutX="69.0" layoutY="90.0" onAction="#toggleDrawTiles" prefHeight="16.0" prefWidth="42.0" selected="true" text=" " />
-                  <AnchorPane layoutX="8.0" layoutY="157.0" prefHeight="601.0" prefWidth="184.0" style="-fx-background-color: white;">
+                  <JFXToggleButton layoutX="63.0" layoutY="32.0" onAction="#toggleDrawGenetics" prefHeight="38.0" prefWidth="75.0" selected="true" text=" " />
+                  <AnchorPane layoutX="8.0" layoutY="139.0" prefHeight="601.0" prefWidth="184.0" style="-fx-background-color: white;">
                      <effect>
                         <DropShadow />
                      </effect>
@@ -108,7 +102,7 @@
                               <Font name="Trebuchet MS Bold" size="13.0" />
                            </font>
                         </Label>
-                        <JFXButton layoutX="46.0" layoutY="536.0" onAction="#populate" prefHeight="31.0" prefWidth="95.0" ripplerFill="BLACK" text="Populate">
+                        <JFXButton layoutX="46.0" layoutY="536.0" onAction="#populate" prefHeight="31.0" prefWidth="95.0" ripplerFill="BLACK" style="-fx-background-color: darkseagreen;" text="Populate">
                            <font>
                               <Font name="Trebuchet MS Bold" size="13.0" />
                            </font>
@@ -170,6 +164,11 @@
                         <Font name="Trebuchet MS Bold" size="13.0" />
                      </font>
                   </Label>
+                  <JFXButton layoutX="46.0" layoutY="83.0" onAction="#populate" prefHeight="31.0" prefWidth="108.0" ripplerFill="BLACK" style="-fx-background-color: darkseagreen;" text="Release Virus" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="46.0">
+                     <font>
+                        <Font name="Trebuchet MS Bold" size="13.0" />
+                     </font>
+                  </JFXButton>
                </children>
                <effect>
                   <DropShadow />
@@ -240,12 +239,12 @@
                         <JFXSlider fx:id="maxTileFoodSlider" layoutX="12.0" layoutY="320.0" majorTickUnit="16.0" max="256.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="128.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
                         <JFXSlider fx:id="maxTileFoodVarSlider" layoutX="12.0" layoutY="370.0" majorTickUnit="16.0" max="128.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="64.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
                         <JFXSlider fx:id="foodTileFreqSlider" layoutX="8.0" layoutY="420.0" majorTickUnit="16.0" max="256.0" minorTickCount="0" prefWidth="160.0" showTickMarks="true" value="256.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
-                        <JFXButton layoutX="45.0" layoutY="453.0" onAction="#applySettings" prefHeight="31.0" prefWidth="95.0" ripplerFill="BLACK" text="Apply">
+                        <JFXButton layoutX="45.0" layoutY="453.0" onAction="#applySettings" prefHeight="31.0" prefWidth="95.0" ripplerFill="BLACK" style="-fx-background-color: darkseagreen;" text="Apply">
                            <font>
                               <Font name="Trebuchet MS Bold" size="13.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton layoutX="45.0" layoutY="495.0" onAction="#applySettingsReset" prefHeight="31.0" prefWidth="95.0" ripplerFill="BLACK" text="Reset">
+                        <JFXButton layoutX="45.0" layoutY="495.0" onAction="#applySettingsReset" prefHeight="31.0" prefWidth="95.0" ripplerFill="BLACK" style="-fx-background-color: darkseagreen;" text="Reset">
                            <font>
                               <Font name="Trebuchet MS Bold" size="13.0" />
                            </font>

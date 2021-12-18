@@ -10,13 +10,30 @@ import java.util.Random;
 
 public class Phage extends Genetic {
 
+    private int divideCounter;
+
     public Phage(int genome, int initEnergy, Position initPos) {
         super(genome, initEnergy, initPos);
+        divideCounter = 0;
     }
 
     @Override
     public void onUpdate(int temperature) {
+        Random rand = new Random();
+        Position pos = getPosition();
 
+        int yShift = 1;
+        int xShift = 1;
+
+        if (rand.nextBoolean()) {
+            yShift = -yShift;
+        }
+        if (rand.nextBoolean()) {
+            xShift = -xShift;
+        }
+
+        pos.adjust(yShift, xShift);
+        setPosition(pos);
     }
 
     @Override

@@ -43,8 +43,6 @@ public class SimController {
 
     private boolean isRunning;
 
-    private boolean drawTiles;
-
     private boolean drawGenetics;
 
     private double displayScale;
@@ -152,7 +150,6 @@ public class SimController {
         applySettings(simDisplay);
         entityMap = createEntityMap(simulation);
 
-        drawTiles = true;
         drawGenetics = true;
         isRunning = false;
 
@@ -195,11 +192,6 @@ public class SimController {
             simLoop.start();
         }
         isRunning = !isRunning;
-    }
-
-    @FXML
-    private void toggleDrawTiles(ActionEvent event) {
-        drawTiles = !drawTiles;
     }
 
     @FXML
@@ -269,7 +261,6 @@ public class SimController {
             String info = entityMap[displayInfoPos.getY()][displayInfoPos.getX()].toString();
             int numLines = info.split("\n").length;
             double fontSize = infoLabel.getFont().getSize();
-            System.out.println(numLines);
             infoPane.setOpacity(INFO_PANE_OPACITY);
             infoLabel.setPrefHeight(numLines * fontSize);
             infoPane.setPrefHeight(numLines * fontSize + 20);
@@ -314,31 +305,29 @@ public class SimController {
         Tile[][] foodMap = simulation.getFoodMap();
         gc.clearRect(0, 0, display.getWidth(), display.getHeight());
 
-        if (drawTiles) {
-            /* draw food tiles */
-            for (int row = 0; row < simulation.getHeight(); row++) {
-                for (int col = 0; col < simulation.getWidth(); col++) {
-                    Color tileColor;
-                    double gradientPos = 0;
-                    /* calculate how the current tile will be represented on the color gradient */
-                    if (foodMap[row][col].getMaxFood() != 0) {
-                        gradientPos = foodMap[row][col].getAvailableFood() /
-                                (double) TILE_MAX_FOOD;
-                    }
-                    int RGB_MAX_VAL = 255;
-                    int red = (int) (RGB_MAX_VAL * (TILE_EMPTY_COLOR.getRed() - gradientPos *
-                            (TILE_EMPTY_COLOR.getRed() - TILE_FULL_COLOR.getRed())));
-                    int green = (int) (RGB_MAX_VAL * (TILE_EMPTY_COLOR.getGreen() - gradientPos *
-                            (TILE_EMPTY_COLOR.getGreen() - TILE_FULL_COLOR.getGreen())));
-                    int blue = (int) (RGB_MAX_VAL * (TILE_EMPTY_COLOR.getBlue() - gradientPos *
-                            (TILE_EMPTY_COLOR.getBlue() - TILE_FULL_COLOR.getBlue())));
-                    tileColor = Color.rgb(
-                            Utils.clamp(red, 0, RGB_MAX_VAL),
-                            Utils.clamp(green, 0, RGB_MAX_VAL),
-                            Utils.clamp(blue, 0, RGB_MAX_VAL));
-                    gc.setFill(tileColor);
-                    gc.fillRect(col * displayScale, row * displayScale, displayScale, displayScale);
+        /* draw food tiles */
+        for (int row = 0; row < simulation.getHeight(); row++) {
+            for (int col = 0; col < simulation.getWidth(); col++) {
+                Color tileColor;
+                double gradientPos = 0;
+                /* calculate how the current tile will be represented on the color gradient */
+                if (foodMap[row][col].getMaxFood() != 0) {
+                    gradientPos = foodMap[row][col].getAvailableFood() /
+                            (double) TILE_MAX_FOOD;
                 }
+                int RGB_MAX_VAL = 255;
+                int red = (int) (RGB_MAX_VAL * (TILE_EMPTY_COLOR.getRed() - gradientPos *
+                        (TILE_EMPTY_COLOR.getRed() - TILE_FULL_COLOR.getRed())));
+                int green = (int) (RGB_MAX_VAL * (TILE_EMPTY_COLOR.getGreen() - gradientPos *
+                        (TILE_EMPTY_COLOR.getGreen() - TILE_FULL_COLOR.getGreen())));
+                int blue = (int) (RGB_MAX_VAL * (TILE_EMPTY_COLOR.getBlue() - gradientPos *
+                        (TILE_EMPTY_COLOR.getBlue() - TILE_FULL_COLOR.getBlue())));
+                tileColor = Color.rgb(
+                        Utils.clamp(red, 0, RGB_MAX_VAL),
+                        Utils.clamp(green, 0, RGB_MAX_VAL),
+                        Utils.clamp(blue, 0, RGB_MAX_VAL));
+                gc.setFill(tileColor);
+                gc.fillRect(col * displayScale, row * displayScale, displayScale, displayScale);
             }
         }
 
