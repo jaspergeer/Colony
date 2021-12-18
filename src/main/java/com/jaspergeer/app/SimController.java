@@ -35,7 +35,7 @@ public class SimController {
 
     private final long BASE_TICK = 32_000_000;
 
-    private final int BACTERIA_INIT_ENERGY = 64;
+    private final double INFO_PANE_OPACITY = 0.8;
 
     private Simulation simulation;
 
@@ -266,8 +266,14 @@ public class SimController {
         infoPane.setTranslateY(event.getY());
         displayInfoPos = new Position(simY, simX, simulation.getHeight(), simulation.getWidth());
         if (!isRunning && entityMap[displayInfoPos.getY()][displayInfoPos.getX()] != null) {
-            infoPane.setOpacity(0.8);
-            infoLabel.setText(entityMap[displayInfoPos.getY()][displayInfoPos.getX()].toString());
+            String info = entityMap[displayInfoPos.getY()][displayInfoPos.getX()].toString();
+            int numLines = info.split("\n").length;
+            double fontSize = infoLabel.getFont().getSize();
+            System.out.println(numLines);
+            infoPane.setOpacity(INFO_PANE_OPACITY);
+            infoLabel.setPrefHeight(numLines * fontSize);
+            infoPane.setPrefHeight(numLines * fontSize + 20);
+            infoLabel.setText(info);
         } else {
             infoPane.setOpacity(0);
         }

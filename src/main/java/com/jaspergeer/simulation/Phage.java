@@ -2,6 +2,8 @@ package com.jaspergeer.simulation;
 
 import javafx.scene.paint.Color;
 
+import java.util.Random;
+
 /**
  * TODO - Implement Phage as a 'virus' that can be released by the user
  */
@@ -14,11 +16,13 @@ public class Phage extends Genetic {
 
     @Override
     public void onUpdate(int temperature) {
+
     }
 
     @Override
     public int getCombatPower(Genetic other) {
-        return 0;
+        Random rand = new Random();
+        return rand.nextInt(999);
     }
 
     @Override
