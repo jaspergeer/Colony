@@ -18,6 +18,7 @@ public class Simulation {
     private int radLevel;
     private int temperature;
     private int maxTileFood;
+    private int population;
 
     /**
      * @param height            number of rows in the map
@@ -45,6 +46,7 @@ public class Simulation {
         entityList = new LinkedList<>();
 
         temperature = initTemp;
+        population = 0;
         this.width = width;
         this.height = height;
 
@@ -57,6 +59,7 @@ public class Simulation {
      * based on food Tile at current location, and updating the list with the surviving individuals
      */
     public void update() {
+        population = 0;
         Genetic[][] collisionMap = new Genetic[height][width];
         LinkedList<Genetic> newEntities = new LinkedList<>();
 
@@ -105,8 +108,12 @@ public class Simulation {
                     Tile thisTile = foodMap[pos.getY()][pos.getX()];
                     thisEntity.onEat(thisTile.getFoodType(),
                             thisTile.getFood(thisEntity.getEatMax()));
-                    /* if this Genetic survived the cycle, enqueue it to be processed next cycle */
+                    /*
+                     * if this Genetic survived the cycle, enqueue it to be processed next cycle and
+                     * add its value to the population counter
+                     */
                     newEntities.add(thisEntity);
+                    population += thisEntity.getPopContribution();
                 }
             }
         }

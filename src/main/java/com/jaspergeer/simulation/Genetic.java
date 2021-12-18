@@ -195,4 +195,9 @@ public abstract class Genetic {
      * @return the color of this Genetic when it is displayed on screen
      */
     public abstract Color getColor();
+
+    /**
+     * @return how much this Genetic contributes to the simulation's total population
+     */
+    public abstract int getPopContribution();
 }

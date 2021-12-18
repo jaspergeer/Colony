@@ -12,8 +12,8 @@ import java.util.Random;
 
 public class Bacteria extends Genetic {
 
-    private final int MAX_POSSIBLE_AGE = 128;
-    private final int RGB_MASK = 0xff;
+    private static final int MAX_POSSIBLE_AGE = 128;
+    private static final int RGB_MASK = 0xff;
 
     private int speed;
     private int metabolism;
@@ -130,6 +130,7 @@ public class Bacteria extends Genetic {
         updateTraits();
         StringBuilder sb = new StringBuilder();
         sb.append("Bacteria #").append(Objects.hash(this)).append("\n");
+        sb.append("===Genome===").append("\n");
         sb.append(String.format("%32s", Integer.toBinaryString(getGenome())).replace(' ', '0'))
                 .append("\n");
         sb.append("===Traits===").append("\n");
@@ -180,4 +181,10 @@ public class Bacteria extends Genetic {
                 (speed * getGeneVal(Gene.WALL_THICKNESS.value)) / 2;
     }
 
+    /**
+     * Bacteria count for 1 population unit
+     */
+    public int getPopContribution() {
+        return 1;
+    }
 }
