@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.1]
+### Added
+- Viruses that can specialize in killing bacteria but are weak to certain bacterial mutations
+## Changed
+- GUI Changes
+
 ## [1.0.2]
 ### Changed
 - Changed mutation mechanics to be more in line with real point, deletion, and inversion mutations
