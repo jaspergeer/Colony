@@ -1,5 +1,9 @@
 # Change Log
 
+#[1.1.3]
+## Changed
+- Changed the mechanics of bacteria-virus encounters
+
 #[1.1.2]
 ## Changed
 - Fixed bacteria populate button functionality

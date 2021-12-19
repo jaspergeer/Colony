@@ -78,15 +78,16 @@ public class Phage extends Genetic {
             return 0;
         }
         int otherGenome = other.getGenome();
+        int numAdaptations = 0;
         for (int i = 0; i < 4; i++) {
             int mask = GENE_MASK << getResistGenePos(i);
             if ((otherGenome & mask) == (getResistGene(i) << getResistGenePos(i)) ||
                     (~otherGenome & mask) == (getResistGene(i) << getResistGenePos(i))) {
-                return 0;
+                numAdaptations++;
             }
         }
         Random rand = new Random();
-        if (rand.nextInt(SURVIVE_ODDS) == 1) {
+        if (rand.nextInt(4) < numAdaptations) {
             return 0;
         }
         divideCounter = other.getEnergy() / COST_PER_CHILD + 1;
