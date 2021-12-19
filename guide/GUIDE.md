@@ -26,7 +26,7 @@ Now its time to switch on the simulation. Click **Toggle Simulation** in the upp
 Your screen should start looking something like this as your bacteria take hold and begin to reproduce and spread. After
 a few seconds, stop the simulation and mouse over the bacteria.
 ![](mouseover.png)
-You should be able to see genetic and phenotype information! The original bacteria all started with the same genome, but
+You should be able to see genetic and phenotypic information! The original bacteria all started with the same genome, but
 you may start seeing some mutations! These mutated strains will have slightly different traits and be shown with
 different colors.
 
