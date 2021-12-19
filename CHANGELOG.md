@@ -1,22 +1,22 @@
 # Change Log
 
-##[1.1.5]
+## [1.1.5]
 ### Changed
 - Bug fixes
 
-##[1.1.4]
+## [1.1.4]
 ### Changed
 - Fixed bug where frameshift mutations would zero out the genome
 
-##[1.1.3]
+## [1.1.3]
 ### Changed
 - Changed the mechanics of bacteria-virus encounters
 
-##[1.1.2]
+## [1.1.2]
 ### Changed
 - Fixed bacteria populate button functionality
 
-##[1.1.1]
+## [1.1.1]
 ### Changed
 - Fixed changelog formatting
 - Viruses now have weaknesses based on their genome
