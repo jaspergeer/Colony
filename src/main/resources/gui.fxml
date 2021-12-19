@@ -292,7 +292,7 @@
             </AnchorPane>
             <Pane fx:id="infoPane" layoutX="200.0" mouseTransparent="true" opacity="0.78" prefHeight="260.0" prefWidth="250.0" style="-fx-background-color: white;">
                <children>
-                  <Label fx:id="infoLabel" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="240.0" prefWidth="230.0" text="11111111111111111111111111111111">
+                  <Label fx:id="infoLabel" alignment="TOP_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="240.0" prefWidth="230.0" text="11111111111111111111111111111111">
                      <font>
                         <Font name="Trebuchet MS Bold" size="12.0" />
                      </font>
