@@ -1,5 +1,9 @@
 # Change Log
 
+#[1.1.2]
+## Changed
+- Fixed bacteria populate button functionality
+
 #[1.1.1]
 ## Changed
 - Fixed changelog formatting
