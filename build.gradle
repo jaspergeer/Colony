@@ -42,10 +42,12 @@ runtime {
         } else if (os.isWindows()) {
             installerType = 'msi'
             installerOutputDir = file("$buildDir/win-installer")
+			installerOptions = ['--win-shortcut', '--win-menu']
             imageOptions = ['--icon', 'src/main/resources/colony.ico']
         } else if (os.isLinux()) {
             installerType = 'rpm'
             installerOutputDir = file("$buildDir/linux-installer")
+			installerOptions = ['--linux-shortcut', '--linux-menu']
         } else {
             installerOutputDir = file("$buildDir/otherOS-installer")
         }
