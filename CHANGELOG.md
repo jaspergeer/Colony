@@ -1,15 +1,15 @@
 # Change Log
 
-#[1.1.3]
-## Changed
+##[1.1.3]
+### Changed
 - Changed the mechanics of bacteria-virus encounters
 
-#[1.1.2]
-## Changed
+##[1.1.2]
+### Changed
 - Fixed bacteria populate button functionality
 
-#[1.1.1]
-## Changed
+##[1.1.1]
+### Changed
 - Fixed changelog formatting
 - Viruses now have weaknesses based on their genome
 - Increased number of viruses spawned when 'Release Virus' button is pressed
