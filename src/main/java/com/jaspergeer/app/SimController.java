@@ -233,7 +233,7 @@ public class SimController {
         for (int i = 0; i < quantitySlider.getValue(); i++) {
             b.setPosition(new Position(rand.nextInt(simDim), rand.nextInt(simDim),
                     simDim, simDim));
-            simulation.addEntity(b);
+            simulation.addEntity(new Bacteria(b));
         }
     }
 
