@@ -1,6 +1,6 @@
 # Colony
 An Graphical Evolution Simulator
-### Installer Downloads (visitors from BB2HK should use these)
+### Installer Download Links (visitors from BB2HK should use these)
  * Mac installer (version 1.1.3) - [download .pkg](https://drive.google.com/file/d/1tIIUWcKrN6fDDtlWaWmdDRbjrfrouWrB/view?usp=sharing)
  * Windows installer (version 1.1.3) - [download .msi](https://drive.google.com/file/d/1449NQpphNu-Jm86IS7NFNsozxD8Khs7O/view?usp=sharing)
 
@@ -19,6 +19,7 @@ chemistry, biology, and anthropology. I was tasked with creating something that 
 decided to demonstrate my knowledge of evolution and genetic mutations.
 
 ## Getting Started
+If you have downloaded an installer using one of the above links, simply run the installer and see the [user guide](USERGUIDE.md) for further information.
 ### Prerequisites
 * Java 17
 ### Installing
