@@ -26,22 +26,23 @@ public class Phage extends Genetic {
 
     private static final int GENE_MASK = 0x7;
 
-    private int divideCounter;
+    private static final int GENE_SHIFT_MASK = 0xf8;
 
-    private int resistGenePos;
+    private static final int GENOME_MASK = 0xff;
+
+    private static final int MAX_RESIST_GENE_POS = 29;
+
+    private int divideCounter;
 
     public Phage(int genome, int initEnergy, Position initPos) {
         super(genome, initEnergy, initPos);
         divideCounter = 0;
-        Random rand = new Random();
-        resistGenePos = rand.nextInt(29);
         setEnergy(0);
     }
 
     public Phage(Phage b) {
         super(b);
         divideCounter = b.divideCounter;
-        resistGenePos = b.resistGenePos;
         setEnergy(0);
     }
 
@@ -74,25 +75,14 @@ public class Phage extends Genetic {
     }
 
     @Override
-    public void mutate() {
-        super.mutate();
-        /* When phages mutate the gene they are weak to can change position */
-        Random rand = new Random();
-        if (rand.nextInt(10) == 1) {
-            resistGenePos += rand.nextInt(3) - 1;
-            resistGenePos = resistGenePos % 29;
-        }
-    }
-
-    @Override
     public int getCombatPower(Genetic other) {
         if (other.getTypeID() == 0) {
             return 0;
         }
         int otherGenome = other.getGenome();
-        int mask = GENE_MASK << resistGenePos;
-        int resistGene = getGenome() & mask;
-        if ((otherGenome & mask) == resistGene || (~otherGenome & mask) == resistGene) {
+        int mask = GENE_MASK << getResistGenePos();
+        if ((otherGenome & mask) == (getResistGene() << getResistGenePos()) ||
+                (~otherGenome & mask) == (getResistGene() << getResistGenePos())) {
             return 0;
         } else {
             Random rand = new Random();
@@ -113,6 +103,7 @@ public class Phage extends Genetic {
             /* The chance of a phage mutating is heavily reduced compared to bacteria */
             if (mutateChance > rand.nextInt(4096)) {
                 child.mutate();
+                child.divideCounter = 0;
                 child.setPosition(child.getPosition().getResultOf(rand.nextInt(DIVIDE_RANGE) - 2,
                         rand.nextInt(DIVIDE_RANGE) - 2));
             }
@@ -129,12 +120,15 @@ public class Phage extends Genetic {
 
     @Override
     public String toString() {
-        int mask = GENE_MASK << resistGenePos;
+        int mask = GENE_MASK << getResistGenePos();
         StringBuilder sb = new StringBuilder();
         sb.append("Virus #").append(Objects.hash(this)).append("\n");
+        sb.append("===Genome===").append("\n");
+        sb.append(String.format("%8s", Integer.toBinaryString(getGenome() & GENOME_MASK))
+                        .replace(' ', '0')).append("\n");
         sb.append("===Weakness===").append("\n");
-        sb.append("Gene ").append(String.format("%3s", Integer.toBinaryString(getGenome() & mask >>> resistGenePos))
-                .replace(' ', '0')).append(" at Position ").append(resistGenePos).append("\n");
+        sb.append("Gene ").append(String.format("%3s", Integer.toBinaryString(getResistGene()))
+                .replace(' ', '0')).append(" at Position ").append(getResistGenePos()).append("\n");
         return sb.toString();
     }
 
@@ -144,6 +138,14 @@ public class Phage extends Genetic {
         int green = getGenome() >>> 8 & RGB_MASK;
         int blue = getGenome() & RGB_MASK;
         return Color.rgb(red, green, blue, OPACITY);
+    }
+
+    int getResistGene() {
+        return getGenome() & GENE_MASK;
+    }
+
+    int getResistGenePos() {
+        return ((getGenome() & GENE_SHIFT_MASK) >>> 3) % MAX_RESIST_GENE_POS;
     }
 
     /**
