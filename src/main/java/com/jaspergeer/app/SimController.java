@@ -245,10 +245,12 @@ public class SimController {
     @FXML
     private void releaseVirus(ActionEvent event) {
         Random rand = new Random();
-        int simDim = simulation.getHeight();
-        Phage p = new Phage(rand.nextInt(), 0,
-                new Position(rand.nextInt(simDim), rand.nextInt(simDim),simDim, simDim));
-        simulation.addEntity(p);
+        for (int i = 0; i < 16; i++) {
+            int simDim = simulation.getHeight();
+            Phage p = new Phage(rand.nextInt(), 0,
+                    new Position(rand.nextInt(simDim), rand.nextInt(simDim),simDim, simDim));
+            simulation.addEntity(p);
+        }
     }
 
     /**

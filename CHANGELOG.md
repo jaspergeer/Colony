@@ -1,9 +1,15 @@
 # Change Log
 
+#[1.1.1]
+## Changed
+- Fixed changelog formatting
+- Viruses now have weaknesses based on their genome
+- Increased number of viruses spawned when 'Release Virus' button is pressed
+
 ## [1.1]
 ### Added
 - Viruses that can specialize in killing bacteria but are weak to certain bacterial mutations
-## Changed
+### Changed
 - GUI Changes
 
 ## [1.0.2]
