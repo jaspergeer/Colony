@@ -4,7 +4,7 @@ An Graphical Evolution Simulator
  * Mac installer (version 1.1.3) - [download .pkg](https://drive.google.com/file/d/1tIIUWcKrN6fDDtlWaWmdDRbjrfrouWrB/view?usp=sharing)
  * Windows installer (version 1.1.3) - [download .msi](https://drive.google.com/file/d/1449NQpphNu-Jm86IS7NFNsozxD8Khs7O/view?usp=sharing)
 
-Once you have downloaded and run the installer, make sure to visit the See the [user guide](guide/GUIDE.md) for more information.
+Once you have downloaded and run the installer, make sure to visit the [user guide](guide/GUIDE.md) for more information.
 
 Colony lets you easily observe the processes of mutation and natural selection!
 The user can vary the temperature, type of food, and abundance of food, and see the effects on the traits of a simulated population.
