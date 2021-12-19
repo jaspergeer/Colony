@@ -1,5 +1,6 @@
 # Colony
 An Graphical Evolution Simulator
+## Installers (visitors from BB2HK should use these)
  * Mac installer (version 1.1.3) - [download .pkg](https://drive.google.com/file/d/1tIIUWcKrN6fDDtlWaWmdDRbjrfrouWrB/view?usp=sharing)
  * Windows installer (version 1.1.3) - [download .msi](https://drive.google.com/file/d/1449NQpphNu-Jm86IS7NFNsozxD8Khs7O/view?usp=sharing)
 
