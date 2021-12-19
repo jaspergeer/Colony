@@ -229,7 +229,6 @@ public class SimController {
         b.setGeneVal(5, (int) foodTypeSlider.getValue() - 1);
         b.setGeneVal(6, (int) appetiteSlider.getValue() - 1);
         b.setGeneVal(7, (int) combatSlider.getValue() - 1);
-
         for (int i = 0; i < quantitySlider.getValue(); i++) {
             b.setPosition(new Position(rand.nextInt(simDim), rand.nextInt(simDim),
                     simDim, simDim));

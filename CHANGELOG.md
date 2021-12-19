@@ -1,5 +1,13 @@
 # Change Log
 
+##[1.1.5]
+### Changed
+- Bug fixes
+
+##[1.1.4]
+### Changed
+- Fixed bug where frameshift mutations would zero out the genome
+
 ##[1.1.3]
 ### Changed
 - Changed the mechanics of bacteria-virus encounters
