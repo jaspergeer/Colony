@@ -136,6 +136,8 @@ public abstract class Genetic {
         return genome;
     }
 
+    public void setGenome(int genome) { this.genome = genome; }
+
     public int getEnergy() {
         return energy;
     }
@@ -197,7 +199,7 @@ public abstract class Genetic {
     public abstract Color getColor();
 
     /**
-     * @return how much this Genetic contributes to the simulation's total population
+     * @return integer id for this Genetic's type
      */
-    public abstract int getPopContribution();
+    public abstract int getTypeID();
 }

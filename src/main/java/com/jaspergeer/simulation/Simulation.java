@@ -18,7 +18,8 @@ public class Simulation {
     private int radLevel;
     private int temperature;
     private int maxTileFood;
-    private int population;
+    private int bactPop;
+    private int phagePop;
 
     /**
      * @param height            number of rows in the map
@@ -46,7 +47,8 @@ public class Simulation {
         entityList = new LinkedList<>();
 
         temperature = initTemp;
-        population = 0;
+        bactPop = 0;
+        phagePop = 0;
         this.width = width;
         this.height = height;
 
@@ -59,7 +61,8 @@ public class Simulation {
      * based on food Tile at current location, and updating the list with the surviving individuals
      */
     public void update() {
-        population = 0;
+        bactPop = 0;
+        phagePop = 0;
         Genetic[][] collisionMap = new Genetic[height][width];
         LinkedList<Genetic> newEntities = new LinkedList<>();
 
@@ -108,12 +111,13 @@ public class Simulation {
                     Tile thisTile = foodMap[pos.getY()][pos.getX()];
                     thisEntity.onEat(thisTile.getFoodType(),
                             thisTile.getFood(thisEntity.getEatMax()));
-                    /*
-                     * if this Genetic survived the cycle, enqueue it to be processed next cycle and
-                     * add its value to the population counter
-                     */
+                    /* if this Genetic survived the cycle, enqueue it to be processed next cycle */
                     newEntities.add(thisEntity);
-                    population += thisEntity.getPopContribution();
+                    if (thisEntity.getTypeID() == 0) {
+                        phagePop += 1;
+                    } else {
+                        bactPop += 1;
+                    }
                 }
             }
         }
@@ -182,8 +186,12 @@ public class Simulation {
         return new LinkedList<>(entityList);
     }
 
-    public int getPopulation() {
-        return entityList.size();
+    public int getBactPop() {
+        return bactPop;
+    }
+
+    public int getPhagePop() {
+        return phagePop;
     }
 
     public int getWidth() {

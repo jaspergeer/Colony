@@ -6,10 +6,13 @@ import java.util.Objects;
 import java.util.Random;
 
 /**
- * Phages contain a
+ * Phages will kill a bacteria 90% of the time unless the bacteria has a specific mutation that the phage is weak to.
+ * In this case the phage will lose the encounter.
  */
 
 public class Phage extends Genetic {
+
+    private static final int HEAT_RESIST = 12;
 
     private static final int DIVIDE_RANGE = 5;
 
@@ -17,27 +20,29 @@ public class Phage extends Genetic {
 
     private static final double OPACITY = 0.2;
 
-    private static final int SURVIVE_ODDS = 100;
+    private static final int SURVIVE_ODDS = 10;
+
+    private static final int COST_PER_CHILD = 16;
+
+    private static final int GENE_MASK = 0x7;
 
     private int divideCounter;
 
-    private final int counterGene;
-
-    private final int counterMask;
+    private int resistGenePos;
 
     public Phage(int genome, int initEnergy, Position initPos) {
         super(genome, initEnergy, initPos);
         divideCounter = 0;
         Random rand = new Random();
-        counterMask = 0xf >>> rand.nextInt(29);
-        counterGene = genome & counterMask;
+        resistGenePos = rand.nextInt(29);
+        setEnergy(0);
     }
 
     public Phage(Phage b) {
         super(b);
         divideCounter = b.divideCounter;
-        counterGene = b.counterGene;
-        counterMask = b.counterMask;
+        resistGenePos = b.resistGenePos;
+        setEnergy(0);
     }
 
     /**
@@ -46,6 +51,13 @@ public class Phage extends Genetic {
     @Override
     public void onUpdate(int temperature) {
         Random rand = new Random();
+        if (temperature > HEAT_RESIST) {
+            if (rand.nextBoolean()) {
+                setDead(true);
+                return;
+            }
+        }
+
         Position pos = getPosition();
 
         int moveAmount = 1;
@@ -62,16 +74,32 @@ public class Phage extends Genetic {
     }
 
     @Override
+    public void mutate() {
+        super.mutate();
+        /* When phages mutate the gene they are weak to can change position */
+        Random rand = new Random();
+        if (rand.nextInt(10) == 1) {
+            resistGenePos += rand.nextInt(3) - 1;
+            resistGenePos = resistGenePos % 29;
+        }
+    }
+
+    @Override
     public int getCombatPower(Genetic other) {
+        if (other.getTypeID() == 0) {
+            return 0;
+        }
         int otherGenome = other.getGenome();
-        if ((otherGenome & counterMask) == counterGene || (~otherGenome & counterMask) == counterGene) {
+        int mask = GENE_MASK << resistGenePos;
+        int resistGene = getGenome() & mask;
+        if ((otherGenome & mask) == resistGene || (~otherGenome & mask) == resistGene) {
             return 0;
         } else {
             Random rand = new Random();
             if (rand.nextInt(SURVIVE_ODDS) == 1) {
                 return 0;
             }
-            divideCounter = other.getEnergy();
+            divideCounter = other.getEnergy() / COST_PER_CHILD + 1;
             return 9999;
         }
     }
@@ -82,7 +110,8 @@ public class Phage extends Genetic {
             Random rand = new Random();
             Phage child = new Phage(this);
             divideCounter--;
-            if (mutateChance > rand.nextInt(256)) {
+            /* The chance of a phage mutating is heavily reduced compared to bacteria */
+            if (mutateChance > rand.nextInt(4096)) {
                 child.mutate();
                 child.setPosition(child.getPosition().getResultOf(rand.nextInt(DIVIDE_RANGE) - 2,
                         rand.nextInt(DIVIDE_RANGE) - 2));
@@ -100,11 +129,12 @@ public class Phage extends Genetic {
 
     @Override
     public String toString() {
+        int mask = GENE_MASK << resistGenePos;
         StringBuilder sb = new StringBuilder();
         sb.append("Virus #").append(Objects.hash(this)).append("\n");
-        sb.append("===Counter Adaptation===").append("\n");
-        sb.append(String.format("%32s", Integer.toBinaryString(getGenome())).replace(' ', '0'))
-                .append("\n");
+        sb.append("===Weakness===").append("\n");
+        sb.append("Gene ").append(String.format("%3s", Integer.toBinaryString(getGenome() & mask >>> resistGenePos))
+                .replace(' ', '0')).append(" at Position ").append(resistGenePos).append("\n");
         return sb.toString();
     }
 
@@ -117,9 +147,9 @@ public class Phage extends Genetic {
     }
 
     /**
-     * Phages do not contribute to population
+     * Phages have id 0
      */
-    public int getPopContribution() {
+    public int getTypeID() {
         return 0;
     }
 }

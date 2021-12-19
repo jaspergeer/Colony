@@ -184,7 +184,7 @@ public class Bacteria extends Genetic {
     /**
      * Bacteria count for 1 population unit
      */
-    public int getPopContribution() {
+    public int getTypeID() {
         return 1;
     }
 }

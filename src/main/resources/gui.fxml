@@ -71,8 +71,8 @@
                         <Font name="Trebuchet MS Bold" size="13.0" />
                      </font>
                   </Label>
-                  <JFXToggleButton layoutX="63.0" layoutY="32.0" onAction="#toggleDrawGenetics" prefHeight="38.0" prefWidth="75.0" selected="true" text=" " />
-                  <AnchorPane layoutX="8.0" layoutY="139.0" prefHeight="601.0" prefWidth="184.0" style="-fx-background-color: white;">
+                  <JFXToggleButton layoutX="63.0" layoutY="24.0" onAction="#toggleDrawGenetics" prefHeight="38.0" prefWidth="75.0" selected="true" text=" " />
+                  <AnchorPane layoutX="9.0" layoutY="194.0" prefHeight="586.0" prefWidth="184.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="7.0">
                      <effect>
                         <DropShadow />
                      </effect>
@@ -164,11 +164,21 @@
                         <Font name="Trebuchet MS Bold" size="13.0" />
                      </font>
                   </Label>
-                  <JFXButton layoutX="46.0" layoutY="83.0" onAction="#populate" prefHeight="31.0" prefWidth="108.0" ripplerFill="BLACK" style="-fx-background-color: darkseagreen;" text="Release Virus" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="46.0">
+                  <JFXButton layoutX="46.0" layoutY="83.0" onAction="#releaseVirus" prefHeight="31.0" prefWidth="108.0" ripplerFill="BLACK" style="-fx-background-color: darkseagreen;" text="Release Virus" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="46.0">
                      <font>
                         <Font name="Trebuchet MS Bold" size="13.0" />
                      </font>
                   </JFXButton>
+                  <Label fx:id="virusCounter" alignment="CENTER" layoutX="12.0" layoutY="125.0" prefHeight="31.0" prefWidth="178.0" text="Viruses: 0">
+                     <font>
+                        <Font name="Trebuchet MS Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="bactCounter" alignment="CENTER" layoutX="11.0" layoutY="150.0" prefHeight="31.0" prefWidth="178.0" text="Bacteria: 0">
+                     <font>
+                        <Font name="Trebuchet MS Bold" size="13.0" />
+                     </font>
+                  </Label>
                </children>
                <effect>
                   <DropShadow />
@@ -176,7 +186,7 @@
             </AnchorPane>
             <AnchorPane minHeight="-Infinity" prefHeight="900.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <AnchorPane layoutX="5.0" layoutY="275.0" prefHeight="547.0" prefWidth="184.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="8.0">
+                  <AnchorPane layoutX="8.0" layoutY="245.0" prefHeight="547.0" prefWidth="184.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0">
                      <effect>
                         <DropShadow />
                      </effect>
@@ -275,11 +285,6 @@
                      </font>
                   </Label>
                   <JFXSlider fx:id="radSlider" layoutX="20.0" layoutY="201.0" majorTickUnit="16.0" max="256.0" minorTickCount="9" prefWidth="160.0" showTickMarks="true" value="16.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Label fx:id="popCounter" alignment="CENTER" layoutX="11.0" layoutY="227.0" prefHeight="31.0" prefWidth="178.0" text="Population: 0">
-                     <font>
-                        <Font name="Trebuchet MS Bold" size="13.0" />
-                     </font>
-                  </Label>
                </children>
                <effect>
                   <DropShadow />

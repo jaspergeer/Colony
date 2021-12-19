@@ -26,16 +26,16 @@ import java.util.Random;
 public class SimController {
 
     /* color of tile with no food */
-    private final Color TILE_EMPTY_COLOR = Color.rgb(135, 135, 135);
+    private static final Color TILE_EMPTY_COLOR = Color.rgb(135, 135, 135);
 
     /* color of tile with maximum food */
-    private final Color TILE_FULL_COLOR = Color.rgb(63, 87, 9);
+    private static final Color TILE_FULL_COLOR = Color.rgb(63, 87, 9);
 
-    private final int TILE_MAX_FOOD = 256;
+    private static final int TILE_MAX_FOOD = 256;
 
-    private final long BASE_TICK = 32_000_000;
+    private static final long BASE_TICK = 32_000_000;
 
-    private final double INFO_PANE_OPACITY = 0.8;
+    private static final double INFO_PANE_OPACITY = 0.8;
 
     private Simulation simulation;
 
@@ -63,7 +63,10 @@ public class SimController {
     AnchorPane displayPane;
 
     @FXML
-    Label popCounter;
+    Label bactCounter;
+
+    @FXML
+    Label virusCounter;
 
     @FXML
     JFXSlider tempSlider;
@@ -170,7 +173,8 @@ public class SimController {
                     drawSimulation(simDisplay);
                     simulation.setTemperature((int) tempSlider.getValue());
                     simulation.setRadLevel((int) radSlider.getValue());
-                    popCounter.setText("Population: " + simulation.getPopulation());
+                    bactCounter.setText("Bacteria: " + simulation.getBactPop());
+                    virusCounter.setText("Viruses: " + simulation.getPhagePop());
                     lastUpdate = now;
                 }
             }
@@ -194,11 +198,22 @@ public class SimController {
         isRunning = !isRunning;
     }
 
+    /**
+     * Toggles drawing Genetics on and off
+     *
+     * @param event ActionEvent that triggered this
+     */
     @FXML
     private void toggleDrawGenetics(ActionEvent event) {
         drawGenetics = !drawGenetics;
     }
 
+    /**
+     * Releases bacteria individuals into the simulation with the quantity and traits determined by the Custom Bacteria
+     * sliders
+     *
+     * @param event ActionEvent that triggered this
+     */
     @FXML
     private void populate(ActionEvent event) {
         Random rand = new Random();
@@ -222,6 +237,11 @@ public class SimController {
         }
     }
 
+    /**
+     * Release a single phage individual with a random genome into the simulation
+     *
+     * @param event ActionEvent that triggered this
+     */
     @FXML
     private void releaseVirus(ActionEvent event) {
         Random rand = new Random();
@@ -271,8 +291,8 @@ public class SimController {
             int numLines = info.split("\n").length;
             double fontSize = infoLabel.getFont().getSize();
             infoPane.setOpacity(INFO_PANE_OPACITY);
-            infoLabel.setPrefHeight(numLines * fontSize);
-            infoPane.setPrefHeight(numLines * fontSize + 20);
+            infoLabel.setPrefHeight(numLines * 16);
+            infoPane.setPrefHeight(numLines * 16 + 20);
             infoLabel.setText(info);
         } else {
             infoPane.setOpacity(0);
