@@ -1,1 +1,1 @@
-## Colony User Guide
+# Colony User Guide
