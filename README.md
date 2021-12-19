@@ -29,7 +29,7 @@ gradlew jpackage
 Step 2) This should generate a installer specific to your OS in directory build/your-os-installer.
 Run the installer.
 
-Step 3) The Colony application should now be installed on your machine. Run the application and enjoy! For more information on the different options and mechanics of Colony, see the [user guide](USERGUIDE.md)
+Step 3) The Colony application should now be installed on your machine. Run the application and enjoy! For more information on the different options and mechanics of Colony, see the [user guide](USERGUIDE.md).
 
 ## Built With
 * [Java](https://www.java.com/en/) - Language the application is built in
