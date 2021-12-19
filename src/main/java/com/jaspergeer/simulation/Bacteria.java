@@ -53,6 +53,7 @@ public class Bacteria extends Genetic {
 
     public Bacteria(Bacteria b) {
         super(b);
+        b.age = 0;
         b.updateTraits();
     }
 
@@ -155,7 +156,7 @@ public class Bacteria extends Genetic {
         int red = getGenome() >>> 16 & RGB_MASK;
         int green = getGenome() >>> 8 & RGB_MASK;
         int blue = getGenome() & RGB_MASK;
-        double opacity = 0.7 * ((double) combatPower / 450) + 0.3;
+        double opacity = 0.4 * ((double) combatPower / 450) + 0.4;
         return Color.rgb(red, green, blue, opacity);
     }
 

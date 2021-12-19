@@ -89,28 +89,34 @@ public abstract class Genetic {
         int location;
         switch (rand.nextInt(3)) {
             /* point mutation */
-            case 0:
+            case 0 -> {
                 mask = 0x1 << rand.nextInt(GENOME_LENGTH);
                 genome = genome ^ mask;
-                break;
+            }
             /* inversion mutation */
-            case 1:
+            case 1 -> {
                 location = (rand.nextInt(GENOME_LENGTH / 4) * 4);
                 mask = 0xf << location;
                 int gene = genome & mask;
                 genome = genome & ~mask;
                 genome = genome & ~gene;
-                break;
+            }
             /* deletion (frameshift) mutation */
-            case 2:
+            case 2 -> {
                 location = rand.nextInt(GENOME_LENGTH);
-                mask = 0x0 >> location;
+                mask = Integer.MAX_VALUE << location;
+                int shiftMask = ~mask >>> 1;
+
+                /* two possible shift directions */
+                int section;
                 if (rand.nextBoolean()) {
-                    mask = ~mask;
+                    section = genome & shiftMask;
+                    genome = (genome & mask) | (section << 1);
+                } else {
+                    section = genome & ~shiftMask;
+                    genome = (genome & ~mask) | (section >> 1);
                 }
-                genome = genome & mask;
-                genome = genome & (rand.nextInt() & ~mask);
-                break;
+            }
         }
     }
 

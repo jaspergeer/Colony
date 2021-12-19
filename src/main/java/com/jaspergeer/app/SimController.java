@@ -219,21 +219,21 @@ public class SimController {
         Random rand = new Random();
 
         int simDim = simulation.getHeight();
-        Bacteria b = new Bacteria(0, (int) initEnergySlider.getValue(),
-                new Position(0, 0, simDim, simDim));
-        b.setGeneVal(0, (int) flagellaSlider.getValue() - 1);
-        b.setGeneVal(1, (int) coldResistSlider.getValue() - 1);
-        b.setGeneVal(2, (int) heatResistSlider.getValue() - 1);
-        b.setGeneVal(3, (int) divThresholdSlider.getValue() - 1);
-        b.setGeneVal(4, (int) wallThicknessSlider.getValue() - 1);
-        b.setGeneVal(5, (int) foodTypeSlider.getValue() - 1);
-        b.setGeneVal(6, (int) appetiteSlider.getValue() - 1);
-        b.setGeneVal(7, (int) combatSlider.getValue() - 1);
-
         for (int i = 0; i < quantitySlider.getValue(); i++) {
+            Bacteria b = new Bacteria(0, (int) initEnergySlider.getValue(),
+                    new Position(0, 0, simDim, simDim));
+            b.setGeneVal(0, (int) flagellaSlider.getValue() - 1);
+            b.setGeneVal(1, (int) coldResistSlider.getValue() - 1);
+            b.setGeneVal(2, (int) heatResistSlider.getValue() - 1);
+            b.setGeneVal(3, (int) divThresholdSlider.getValue() - 1);
+            b.setGeneVal(4, (int) wallThicknessSlider.getValue() - 1);
+            b.setGeneVal(5, (int) foodTypeSlider.getValue() - 1);
+            b.setGeneVal(6, (int) appetiteSlider.getValue() - 1);
+            b.setGeneVal(7, (int) combatSlider.getValue() - 1);
             b.setPosition(new Position(rand.nextInt(simDim), rand.nextInt(simDim),
                     simDim, simDim));
-            simulation.addEntity(new Bacteria(b));
+            System.out.println(b.getGenome());
+            simulation.addEntity(b);
         }
     }
 
