@@ -3,7 +3,7 @@ An Graphical Evolution Simulator
 ### Installer Download Links (visitors from BB2HK should use these)
  * Mac installer (version 1.1.3) - [download .pkg](https://drive.google.com/file/d/1tIIUWcKrN6fDDtlWaWmdDRbjrfrouWrB/view?usp=sharing)
  * Windows installer (version 1.1.3) - [download .msi](https://drive.google.com/file/d/1449NQpphNu-Jm86IS7NFNsozxD8Khs7O/view?usp=sharing)
-Once you have downloaded and run the installer, make sure to visit the See the [user guide](userguide/USERGUIDE.md) for more information.
+Once you have downloaded and run the installer, make sure to visit the See the [user guide](guide/GUIDE.md) for more information.
 
 Colony lets you easily observe the processes of mutation and natural selection!
 The user can vary the temperature, type of food, and abundance of food, and see the effects on the traits of a simulated population.
@@ -21,7 +21,7 @@ decided to demonstrate my knowledge of evolution and genetic mutations.
 
 ## Getting Started
 If you have downloaded an installer using one of the above links, simply run the installer and then run the application.
-See the [user guide](userguide/USERGUIDE.md) for more information.
+See the [user guide](guide/GUIDE.md) for more information.
 ### Prerequisites
 * Java 17
 ### Installing
@@ -34,7 +34,7 @@ Step 2) This should generate a installer specific to your OS in directory build/
 Run the installer.
 
 Step 3) The Colony application should now be installed on your machine. Run the application and enjoy!
-See the [user guide](userguide/USERGUIDE.md) for more information.
+See the [user guide](guide/GUIDE.md) for more information.
 
 ## Built With
 * [Java](https://www.java.com/en/) - Language the application is built in
