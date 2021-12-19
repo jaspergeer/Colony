@@ -19,7 +19,7 @@ chemistry, biology, and anthropology. I was tasked with creating something that 
 decided to demonstrate my knowledge of evolution and genetic mutations.
 
 ## Getting Started
-If you have downloaded an installer using one of the above links, simply run the installer and see the [user guide](USERGUIDE.md) for further information.
+If you have downloaded an installer using one of the above links, simply run the installer and then run the application.
 ### Prerequisites
 * Java 17
 ### Installing
@@ -31,7 +31,7 @@ gradlew jpackage
 Step 2) This should generate a installer specific to your OS in directory build/your-os-installer.
 Run the installer.
 
-Step 3) The Colony application should now be installed on your machine. Run the application and enjoy! For more information on the different options and mechanics of Colony, see the [user guide](USERGUIDE.md).
+Step 3) The Colony application should now be installed on your machine. Run the application and enjoy!
 
 ## Built With
 * [Java](https://www.java.com/en/) - Language the application is built in
