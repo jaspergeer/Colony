@@ -1,6 +1,6 @@
 # Colony
 An Graphical Evolution Simulator
-### Installer Download Links (visitors from BB2HK should use these)
+### Installer Download Links
  * Mac installer (version 1.1.5) - [download .pkg](https://drive.google.com/file/d/1orO6uK1L2k6rGvJMvNMd9crx1e8yGFaQ/view?usp=sharing)
  * Windows installer (version 1.1.5) - [download .msi](https://drive.google.com/file/d/1rIBqBADBgQJ5OCz4ciql4FQKJtiSAmKw/view?usp=sharing)
 
@@ -14,11 +14,6 @@ Feel free to use as an educational tool or just for fun.
 
 ## WARNING
 ### This program has a graphical component that may cause eye strain or seizures in certain viewers. Even if you are not normally susceptible I would recommend switiching off 'Draw Entities' for longer viewing periods.
-
-## Motivation
-Colony was created as my final project submission for Big Bang to Humankind, a class at my university covering elements of astronomy, physics,
-chemistry, biology, and anthropology. I was tasked with creating something that demonstrated my synthesis of topics covered in the course and 
-decided to demonstrate my knowledge of evolution and genetic mutations.
 
 ## Getting Started
 If you have downloaded an installer using one of the above links, simply run the installer and then run the application.
