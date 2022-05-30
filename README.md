@@ -9,11 +9,6 @@ Once you have downloaded and run the installer, make sure to visit the [user gui
 Colony lets you easily observe the processes of mutation and natural selection!
 The user can vary the temperature, type of food, and abundance of food, and see the effects on the traits of a simulated population.
 If you are feeling especially malevolent, unleash a virus upon your colony and see how they adapt and evolve.
-This is not meant as an accurate scientific demonstration but instead as an accessible way to display the process of evolution!
-Feel free to use as an educational tool or just for fun.
-
-## WARNING
-### This program has a graphical component that may cause eye strain or seizures in certain viewers. Even if you are not normally susceptible I would recommend switiching off 'Draw Entities' for longer viewing periods.
 
 ## Getting Started
 If you have downloaded an installer using one of the above links, simply run the installer and then run the application.
