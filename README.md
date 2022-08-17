@@ -1,18 +1,12 @@
 # Colony
 An Graphical Evolution Simulator
-### Installer Download Links
- * Mac installer (version 1.1.5) - [download .pkg](https://drive.google.com/file/d/1orO6uK1L2k6rGvJMvNMd9crx1e8yGFaQ/view?usp=sharing)
- * Windows installer (version 1.1.5) - [download .msi](https://drive.google.com/file/d/1rIBqBADBgQJ5OCz4ciql4FQKJtiSAmKw/view?usp=sharing)
-
-Once you have downloaded and run the installer, make sure to visit the [user guide](guide/GUIDE.md) for more information.
 
 Colony lets you easily observe the processes of mutation and natural selection!
 The user can vary the temperature, type of food, and abundance of food, and see the effects on the traits of a simulated population.
 If you are feeling especially malevolent, unleash a virus upon your colony and see how they adapt and evolve.
 
 ## Getting Started
-If you have downloaded an installer using one of the above links, simply run the installer and then run the application.
-See the [user guide](guide/GUIDE.md) for more information.
+
 ### Prerequisites
 * Java 17
 ### Installing
